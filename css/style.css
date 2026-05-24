@@ -331,11 +331,11 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
 }
 
 /* Project image colour themes */
-.pi-caledon-trails { background: linear-gradient(145deg,#1a3a2a,#2d5a3d); }
-.pi-caledon-club   { background: linear-gradient(145deg,#1a2a3a,#2d3f5a); }
-.pi-the-valley     { background: linear-gradient(145deg,#2a1a2a,#5a2d5a); }
-.pi-mattamy        { background: linear-gradient(145deg,#1a1a3a,#2d2d5a); }
-.pi-rosehaven      { background: linear-gradient(145deg,#2a2a1a,#5a5a2d); }
+.pi-caledon-trails { background: linear-gradient(160deg,rgba(10,22,40,0.52),rgba(10,22,40,0.30)), url('../images/projects/caledon-trails.jpg') center/cover no-repeat; }
+.pi-caledon-club   { background: linear-gradient(160deg,rgba(10,22,40,0.52),rgba(10,22,40,0.30)), url('../images/projects/caledon-club.jpg') center/cover no-repeat; }
+.pi-trafalgar      { background: linear-gradient(145deg,#1a2f3a,#2d4a5a); }
+.pi-ellis-lane     { background: linear-gradient(160deg,rgba(10,22,40,0.45),rgba(10,22,40,0.22)), url('../images/projects/poetry-ellis-lane.jpg') center/cover no-repeat; }
+.pi-on-the-ridge   { background: linear-gradient(145deg,#0f1e2d,#1a3048); }
 
 /* Hover zoom on project image */
 .project-card:hover .project-image { filter: brightness(1.08); }
