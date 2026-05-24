@@ -497,6 +497,8 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
 .ci { font-size:1.15rem; margin-top:2px; }
 .contact-label { display:block; font-size:.68rem; color:rgba(255,255,255,.4); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px; }
 .contact-value { display:block; font-size:.88rem; color:#fff; font-weight:500; }
+a.contact-value { color:var(--gold-light); transition: opacity 0.2s ease; }
+a.contact-value:hover { opacity:0.8; }
 .social-links { display:flex; gap:12px; margin-top:22px; padding-top:22px; border-top:1px solid rgba(255,255,255,.1); }
 .social-btn {
     flex:1; text-align:center; padding:10px;
