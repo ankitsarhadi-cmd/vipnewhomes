@@ -863,3 +863,40 @@ a.footer-contact-link:hover { color:var(--gold); }
 @media (max-width: 480px) {
     .footer-cols { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   MOBILE OVERRIDES FOR NEW SECTIONS
+   (Must come after component definitions to win the cascade)
+   ============================================================ */
+@media (max-width: 768px) {
+    /* Proof strip */
+    .proof-strip-inner { flex-direction: column; gap: 18px; align-items: flex-start; padding: 0 4px; }
+    .ps-divider { width: 100%; height: 1px; }
+    .ps-quote { max-width: 100%; padding: 0; }
+    .ps-rating { align-items: flex-start; padding: 0; }
+    .ps-cta { padding: 0; width: 100%; }
+    .ps-cta .btn { width: 100%; text-align: center; }
+
+    /* Cost of Waiting FOMO */
+    .cow-inner { grid-template-columns: 1fr !important; gap: 40px; padding: 64px 0; }
+    .cow-stats { gap: 20px; }
+    .cow-card { padding: 22px 20px; }
+
+    /* Builder strip */
+    .bs-logos { gap: 8px; }
+    .bs-logos span { font-size: 0.78rem; padding: 6px 12px; }
+
+    /* Homepage reviews */
+    .hp-reviews-grid { grid-template-columns: 1fr !important; }
+    .hp-review-card { padding: 24px 20px; }
+
+    /* Contact urgency & what-happens-next */
+    .contact-urgency { font-size: 0.82rem; padding: 10px 14px; flex-wrap: wrap; }
+    .what-happens-next { margin-top: 28px; }
+    .form-social-proof { flex-wrap: wrap; justify-content: center; text-align: center; }
+
+    /* Prevent grid item overflow */
+    .contact-form { min-width: 0; width: 100%; }
+    .contact-info-panel { min-width: 0; width: 100%; }
+    .contact-wrapper { overflow: hidden; }
+}
