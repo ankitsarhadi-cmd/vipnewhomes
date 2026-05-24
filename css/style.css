@@ -674,7 +674,192 @@ a.footer-contact-link:hover { color:var(--gold); }
     .footer-cols { grid-template-columns: 1fr 1fr; gap: 28px; }
     .footer-col-brand { grid-column: 1 / -1; }
     .footer-bottom { flex-direction: column; text-align: center; }
+
+    /* Proof strip */
+    .proof-strip-inner { flex-direction: column; gap: 18px; align-items: flex-start; padding: 0 4px; }
+    .ps-divider { width: 100%; height: 1px; }
+    .ps-quote { max-width: 100%; padding: 0; }
+    .ps-rating { align-items: flex-start; padding: 0; }
+    .ps-cta { padding: 0; }
+
+    /* FOMO */
+    .cow-inner { grid-template-columns: 1fr; gap: 40px; padding: 64px 0; }
+
+    /* Builder strip */
+    .bs-logos span { font-size: 0.82rem; padding: 6px 14px; }
+
+    /* HP Reviews */
+    .hp-reviews-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   PROOF STRIP (replaces stats bar)
+   ============================================================ */
+.proof-strip {
+    background: var(--navy);
+    border-top: 1px solid rgba(201,162,39,0.18);
+    padding: 22px 24px;
+}
+.proof-strip-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+}
+.ps-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 40px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.ps-stars { color: var(--gold); font-size: 1.05rem; letter-spacing: 3px; margin-bottom: 4px; }
+.ps-score-text { font-size: 0.78rem; color: rgba(255,255,255,0.55); white-space: nowrap; }
+.ps-score-text strong { color: var(--gold); font-size: 0.95rem; }
+.ps-divider { width: 1px; height: 52px; background: rgba(255,255,255,0.11); flex-shrink: 0; }
+.ps-quote { padding: 10px 36px; max-width: 300px; }
+.ps-quote p {
+    font-size: 0.81rem; color: rgba(255,255,255,0.7);
+    font-style: italic; line-height: 1.55; margin-bottom: 5px;
+}
+.ps-quote cite { font-size: 0.68rem; color: var(--gold); font-style: normal; font-weight: 600; letter-spacing: 0.3px; }
+.ps-cta { padding: 10px 40px; flex-shrink: 0; }
+
+/* ============================================================
+   COST OF WAITING (FOMO / Loss Aversion)
+   ============================================================ */
+.cost-of-waiting { background: var(--off-white); padding: 0 24px; }
+.cow-inner {
+    max-width: var(--max); margin: 0 auto; padding: 96px 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+}
+.cow-text .section-title { margin-top: 10px; margin-bottom: 18px; }
+.cow-text > p { color: var(--gray-dark); font-size: 0.95rem; line-height: 1.82; margin-bottom: 36px; }
+.cow-stats { display: flex; gap: 32px; margin-bottom: 36px; flex-wrap: wrap; }
+.cow-stat { display: flex; flex-direction: column; gap: 5px; }
+.cow-num { font-family: var(--font-serif); font-size: 2.1rem; font-weight: 700; color: var(--gold); line-height: 1; }
+.cow-label { font-size: 0.7rem; color: var(--gray); max-width: 110px; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.5px; }
+.cow-card-stack { display: flex; flex-direction: column; gap: 16px; }
+.cow-card { padding: 28px 32px; border-radius: var(--radius); }
+.cow-card-vip { background: var(--navy); }
+.cow-card-public { background: var(--white); border: 1px solid var(--gray-light); }
+.cow-card-badge {
+    display: inline-block; font-size: 0.62rem; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 10px; border-radius: 4px;
+    background: var(--gold); color: var(--navy); margin-bottom: 14px;
+}
+.cow-badge-gray { background: var(--gray-light); color: var(--gray); }
+.cow-card h4 { font-family: var(--font-serif); font-size: 0.95rem; margin-bottom: 14px; }
+.cow-card-vip h4 { color: rgba(255,255,255,0.55); }
+.cow-card-public h4 { color: var(--gray); }
+.cow-card ul { display: flex; flex-direction: column; gap: 9px; list-style: none; padding: 0; }
+.cow-card-vip ul li { font-size: 0.88rem; color: rgba(255,255,255,0.92); font-weight: 500; }
+.cow-card-public ul li { font-size: 0.88rem; color: var(--gray); opacity: 0.65; text-decoration: line-through; }
+
+/* ============================================================
+   BUILDER TRUST STRIP
+   ============================================================ */
+.builder-strip {
+    background: var(--white);
+    border-top: 1px solid var(--gray-light);
+    border-bottom: 1px solid var(--gray-light);
+    padding: 38px 24px;
+}
+.bs-inner { max-width: var(--max); margin: 0 auto; text-align: center; }
+.bs-label {
+    font-size: 0.63rem; font-weight: 700; letter-spacing: 3px;
+    color: var(--gray); text-transform: uppercase; margin-bottom: 22px;
+}
+.bs-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; }
+.bs-logos span {
+    font-family: var(--font-serif); font-size: 0.95rem; font-weight: 600;
+    color: var(--navy); opacity: 0.38; padding: 6px 22px;
+    border-right: 1px solid var(--gray-light); transition: opacity 0.25s; white-space: nowrap;
+}
+.bs-logos span:last-child { border-right: none; }
+.bs-logos span:hover { opacity: 0.85; }
+
+/* ============================================================
+   HOMEPAGE REVIEWS PREVIEW
+   ============================================================ */
+.hp-reviews { background: var(--off-white); padding: 0 24px; }
+.hp-reviews-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 24px; margin-bottom: 44px;
+}
+.hp-review-card {
+    background: var(--white); border-radius: var(--radius);
+    padding: 28px; border: 1px solid var(--gray-light); transition: var(--ease);
+}
+.hp-review-card:hover { border-color: var(--gold); box-shadow: 0 4px 24px rgba(201,162,39,0.09); transform: translateY(-3px); }
+.hp-rc-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 12px; }
+.hp-rc-text { font-size: 0.87rem; color: var(--gray-dark); line-height: 1.72; font-style: italic; margin-bottom: 18px; }
+.hp-rc-author { display: flex; align-items: center; gap: 10px; }
+.hp-rc-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--navy); color: var(--gold);
+    font-weight: 700; font-size: 0.85rem;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.hp-rc-name { font-size: 0.82rem; font-weight: 600; color: var(--navy); }
+.hp-rc-type { font-size: 0.7rem; color: var(--gray); margin-top: 1px; }
+.hp-reviews-footer { text-align: center; }
+.hp-reviews-footer p { font-size: 0.86rem; color: var(--gray); margin-bottom: 18px; }
+
+/* ============================================================
+   CONTACT OVERHAUL — urgency, what-happens-next
+   ============================================================ */
+.contact-urgency {
+    background: rgba(201,162,39,0.09);
+    border: 1px solid rgba(201,162,39,0.22);
+    border-radius: 8px; padding: 11px 18px;
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.81rem; color: var(--gold-light);
+}
+.form-submit-area { display: flex; flex-direction: column; gap: 10px; }
+.form-social-proof {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; font-size: 0.73rem; color: rgba(255,255,255,0.3);
+}
+.form-social-proof .fsp-stars { color: var(--gold); font-size: 0.78rem; letter-spacing: 1px; }
+.what-happens-next {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius); padding: 24px 28px;
+}
+.what-happens-next h4 {
+    font-size: 0.67rem; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: rgba(255,255,255,0.38); margin-bottom: 18px;
+}
+.wh-steps { display: flex; flex-direction: column; gap: 14px; }
+.wh-step { display: flex; align-items: flex-start; gap: 12px; }
+.wh-num {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--gold); color: var(--navy);
+    font-size: 0.7rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+}
+.wh-text { font-size: 0.82rem; color: rgba(255,255,255,0.62); line-height: 1.55; }
+.wh-text strong { color: rgba(255,255,255,0.88); }
+
+/* Hero urgency note */
+.hero-urgency {
+    margin-top: 16px;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.hero-urgency::before {
+    content: '⚡';
+    font-size: 0.85rem;
+}
+
 @media (max-width: 480px) {
     .footer-cols { grid-template-columns: 1fr; }
 }
