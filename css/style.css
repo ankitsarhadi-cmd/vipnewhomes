@@ -144,21 +144,33 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
 }
 .nav-logo {
     display: flex;
-    align-items: baseline;
-    gap: 8px;
+    align-items: center;
+    gap: 0;
+    text-decoration: none;
+    flex-shrink: 0;
 }
+.logo-img {
+    height: 48px;
+    width: 48px;
+    object-fit: contain;
+    border-radius: 50%;
+    display: block;
+}
+/* Legacy text spans — kept for any fallback context */
 .logo-vip {
     font-family: var(--font-serif);
     font-size: 1.55rem;
     font-weight: 700;
     color: var(--gold);
     letter-spacing: 2px;
+    display: none;
 }
 .logo-text {
     font-size: 0.72rem;
     font-weight: 600;
     color: #fff;
     letter-spacing: 3px;
+    display: none;
 }
 .nav-links {
     display: flex;
