@@ -251,13 +251,160 @@
 }
 .faq-answer ul li { margin-bottom: 5px; }
 
+/* ── ─────────────────────────────────────────────────────── */
+/* WHY PRE-CONSTRUCTION                                      */
+/* ── ─────────────────────────────────────────────────────── */
+
+.wpc-section {
+    background: var(--off-white);
+    padding: 72px 24px 88px;
+}
+.wpc-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+}
+
+/* HST hero callout */
+.wpc-hst {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    background: var(--navy);
+    border: 1px solid rgba(201,162,39,0.35);
+    border-radius: var(--radius);
+    padding: 32px 36px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+}
+.wpc-hst::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 0% 50%, rgba(201,162,39,0.12) 0%, transparent 60%);
+    pointer-events: none;
+}
+.wpc-hst-badge {
+    flex-shrink: 0;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+.wpc-hst-body { flex: 1; position: relative; z-index: 1; }
+.wpc-hst-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+.wpc-hst-text {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.wpc-hst-amount {
+    flex-shrink: 0;
+    text-align: center;
+    position: relative; z-index: 1;
+}
+.wpc-hst-num {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+}
+.wpc-hst-num-label {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* category label */
+.wpc-cat-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 44px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gray-light);
+}
+.wpc-cat-label:first-of-type { margin-top: 0; }
+
+/* grid */
+.wpc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+.wpc-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.wpc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+}
+.wpc-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+.wpc-card-title {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.25;
+}
+.wpc-card-text {
+    font-size: 0.855rem;
+    color: var(--gray-dark);
+    line-height: 1.65;
+}
+.wpc-card-tag {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 3px 9px;
+    background: rgba(201,162,39,0.1);
+    color: var(--navy);
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 20px;
+    border: 1px solid rgba(201,162,39,0.25);
+    width: fit-content;
+}
+
 /* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .wpc-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 640px) {
     .page-hero     { padding: 96px 20px 44px; }
     .hiw-section,
-    .faq-section   { padding: 48px 16px 64px; }
+    .faq-section,
+    .wpc-section   { padding: 48px 16px 64px; }
     .hiw-steps::before { left: 23px; }
     .hiw-num       { width: 46px; height: 46px; font-size: 1rem; }
     .hiw-step      { gap: 18px; }
     .faq-question  { font-size: 0.93rem; }
+    .wpc-hst       { flex-direction: column; gap: 16px; padding: 24px; }
+    .wpc-hst-num   { font-size: 2rem; }
+    .wpc-grid      { grid-template-columns: 1fr; }
 }
