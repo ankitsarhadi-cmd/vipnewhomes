@@ -42,7 +42,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.project-card, .benefit-card').forEach(el => {
+document.querySelectorAll('.project-card, .benefit-card, .review-card').forEach(el => {
     el.style.opacity   = '0';
     el.style.transform = 'translateY(22px)';
     el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
