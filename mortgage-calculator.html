@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator Ontario | VIP New Homes | Team Sarhadi</title>
+    <meta name="description" content="Free Ontario mortgage payment calculator. Canadian semi-annual compounding, CMHC insurance detection, multiple payment frequencies. Built for pre-construction buyers.">
+
+    <!-- SEO -->
+    <link rel="canonical" href="https://vipnewhomes.ca/mortgage-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vipnewhomes.ca/mortgage-calculator.html">
+    <meta property="og:title" content="Mortgage Calculator Ontario | VIP New Homes">
+    <meta property="og:description" content="Free Ontario mortgage payment calculator with Canadian semi-annual compounding, CMHC insurance, and multiple payment frequencies.">
+    <meta property="og:site_name" content="VIP New Homes | Team Sarhadi">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mortgage Calculator Ontario | VIP New Homes">
+    <meta name="twitter:description" content="Free Ontario mortgage calculator — Canadian semi-annual compounding, CMHC detection, all payment frequencies.">
+
+    <!-- Structured Data: WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Ontario Mortgage Calculator",
+      "url": "https://vipnewhomes.ca/mortgage-calculator.html",
+      "description": "Free Ontario mortgage payment calculator with Canadian semi-annual compounding, CMHC insurance, and multiple payment frequencies.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" },
+      "provider": {
+        "@type": "RealEstateAgent",
+        "name": "VIP New Homes | Team Sarhadi",
+        "url": "https://vipnewhomes.ca",
+        "telephone": "+14162002620"
+      }
+    }
+    </script>
+
+    <!-- ============================================================
+         TRACKING PLACEHOLDERS — Activate when IDs are ready
+         Step 1: Replace GTM-XXXXXXX with your GTM container ID
+         Step 2: Remove the surrounding HTML comment tags
+         ============================================================ -->
+    <!--
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    -->
+    <!-- ============================================================
+         META PIXEL PLACEHOLDER — Activate when Pixel ID is ready
+         Step 1: Replace YOUR_PIXEL_ID with your Facebook Pixel ID
+         Step 2: Remove the surrounding HTML comment tags
+         ============================================================ -->
+    <!--
+    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','YOUR_PIXEL_ID');fbq('track','PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"></noscript>
+    -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/calculators.css">
+</head>
+<body>
+
+    <!-- Google Tag Manager (noscript) placeholder -->
+    <!--
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    -->
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-vip">VIP</span>
+                <span class="logo-text">NEW HOMES</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="why-us.html">Why Us</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="mortgage-calculator.html" class="active-link">Calculators</a></li>
+                <li><a href="why-pre-con.html">Why Pre-Con</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Register Now</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="page-hero">
+        <div class="page-hero-inner">
+            <p class="page-hero-tag">Free Tool · Ontario</p>
+            <h1 class="page-hero-title">Mortgage <span class="gold">Payment Calculator</span></h1>
+            <p class="page-hero-sub">Canadian semi-annual compounding. CMHC insurance. All payment frequencies. Built for Ontario buyers.</p>
+        </div>
+    </section>
+
+    <!-- ========== CALCULATOR ========== -->
+    <section class="calc-section">
+        <div class="calc-inner">
+
+            <div class="calc-card">
+
+                <!-- ── Inputs ── -->
+                <div class="calc-inputs">
+                    <p class="calc-inputs-title">Your Mortgage Details</p>
+
+                    <div class="calc-field">
+                        <label for="mc-price">Purchase Price</label>
+                        <input type="number" id="mc-price" placeholder="850,000" min="100000" max="5000000" step="5000" value="850000">
+                    </div>
+
+                    <div class="calc-field">
+                        <label>Down Payment</label>
+                        <div class="dp-toggle" id="dpToggle">
+                            <button class="dp-tab active" data-mode="percent">%</button>
+                            <button class="dp-tab" data-mode="dollar">$</button>
+                        </div>
+                        <input type="number" id="mc-dp" placeholder="20" min="5" step="0.5" value="20">
+                        <div class="cmhc-notice" id="cmhcNotice">
+                            <strong>CMHC Insurance applies.</strong> Down payments under 20% require mortgage default insurance. Your insured amount will be added to the mortgage principal.
+                        </div>
+                    </div>
+
+                    <div class="calc-field">
+                        <label for="mc-rate">Interest Rate (% per year)</label>
+                        <input type="number" id="mc-rate" placeholder="5.19" min="0.5" max="20" step="0.05" value="5.19">
+                    </div>
+
+                    <div class="calc-field">
+                        <label for="mc-amort">Amortization Period</label>
+                        <select id="mc-amort">
+                            <option value="30">30 years</option>
+                            <option value="25" selected>25 years</option>
+                            <option value="20">20 years</option>
+                            <option value="15">15 years</option>
+                            <option value="10">10 years</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-field">
+                        <label for="mc-freq">Payment Frequency</label>
+                        <select id="mc-freq">
+                            <option value="monthly" selected>Monthly (12×/yr)</option>
+                            <option value="semimonthly">Semi-Monthly (24×/yr)</option>
+                            <option value="biweekly">Bi-Weekly (26×/yr)</option>
+                            <option value="weekly">Weekly (52×/yr)</option>
+                            <option value="accel-biweekly">Accelerated Bi-Weekly</option>
+                            <option value="accel-weekly">Accelerated Weekly</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- ── Results ── -->
+                <div class="calc-results" id="mc-results">
+                    <p class="calc-results-title">Your Estimate</p>
+
+                    <p class="result-primary-label" id="mc-freq-label">Monthly Payment</p>
+                    <p class="result-primary-value" id="mc-payment">$0</p>
+                    <p class="result-primary-sub">Estimated — see disclaimer below</p>
+
+                    <div class="result-breakdown">
+                        <div class="result-row">
+                            <span class="result-row-label">Purchase Price</span>
+                            <span class="result-row-value" id="mc-r-price">—</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-row-label">Down Payment</span>
+                            <span class="result-row-value" id="mc-r-dp">—</span>
+                        </div>
+                        <div class="result-row" id="mc-cmhc-row" style="display:none;">
+                            <span class="result-row-label">CMHC Insurance</span>
+                            <span class="result-row-value" id="mc-r-cmhc">—</span>
+                        </div>
+                        <div class="result-row highlight">
+                            <span class="result-row-label">Mortgage Amount</span>
+                            <span class="result-row-value" id="mc-r-mortgage">—</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-row-label">Interest Rate</span>
+                            <span class="result-row-value" id="mc-r-rate">—</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-row-label">Amortization</span>
+                            <span class="result-row-value" id="mc-r-amort">—</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-row-label">Total Interest Paid</span>
+                            <span class="result-row-value" id="mc-r-interest">—</span>
+                        </div>
+                        <div class="result-row highlight">
+                            <span class="result-row-label">Total Cost of Mortgage</span>
+                            <span class="result-row-value" id="mc-r-total">—</span>
+                        </div>
+                    </div>
+
+                    <p class="result-note">
+                        Calculations use Canadian semi-annual compounding as required by the <em>Interest Act</em>. CMHC rates: 5–9.99% → 4.00%, 10–14.99% → 3.10%, 15–19.99% → 2.80%. For a personalized rate, speak with a mortgage broker from our network — <a href="index.html#contact">register here</a>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Cross-link bar -->
+            <div class="calc-crosslink">
+                <p>Also estimate your HST costs and rebate on a new Ontario home.</p>
+                <a href="hst-calculator.html">HST Rebate Calculator →</a>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="calc-disclaimer">
+                <strong>Disclaimer:</strong> This calculator is for <strong>estimation purposes only</strong> and does not constitute financial advice. Results assume a fixed rate for the full amortization period, level payments, no prepayments, and are rounded to the nearest dollar. Actual payments will depend on your lender, rate, payment schedule, and mortgage terms. CMHC insurance premiums shown are approximate and subject to change. Always consult a licensed mortgage broker or financial advisor before making any borrowing decisions. E.&amp;O.E.
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="hiw-cta">
+        <div class="hiw-cta-inner">
+            <h2>Ready to Get <span class="gold">Pre-Approved?</span></h2>
+            <p>We'll connect you with a trusted mortgage broker from our network — at no cost to you.</p>
+            <div class="hiw-cta-btns">
+                <a href="index.html#contact" class="btn btn-primary">Register for Free</a>
+                <a href="tel:4162002620" class="btn btn-outline">Call 416-200-2620</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-cols">
+                <div class="footer-col footer-col-brand">
+                    <div class="nav-logo">
+                        <span class="logo-vip">VIP</span>
+                        <span class="logo-text">NEW HOMES</span>
+                    </div>
+                    <p class="footer-tagline">Ontario's Pre-Construction Specialists</p>
+                    <div class="footer-contact-list">
+                        <a href="tel:4162002620" class="footer-contact-link">📞 416-200-2620</a>
+                        <a href="mailto:info@teamsarhadi.com" class="footer-contact-link">✉️ info@teamsarhadi.com</a>
+                        <span class="footer-contact-link">📍 821 Bovaird Dr W #31, Brampton, ON</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-title">Quick Links</p>
+                    <ul class="footer-col-links">
+                        <li><a href="projects.html">Active Projects</a></li>
+                        <li><a href="why-us.html">Why Choose Us</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="index.html#contact">Register for VIP Access</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-title">Learn</p>
+                    <ul class="footer-col-links">
+                        <li><a href="why-pre-con.html">Why Pre-Construction</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="reviews.html">Client Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-title">Free Tools</p>
+                    <ul class="footer-col-links">
+                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                        <li><a href="hst-calculator.html">HST Rebate Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 VIP New Homes | Team Sarhadi, Homelife Miracle Realty Ltd., Brokerage. All rights reserved.</p>
+                <p class="footer-disc">Calculators are for estimation only and do not constitute financial advice. E. &amp; O.E.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+    /* ============================================================
+       Ontario Mortgage Calculator
+       Canadian semi-annual compounding (Interest Act)
+       ============================================================ */
+
+    const fmt = n => '$' + Math.round(n).toLocaleString('en-CA');
+    const pct = n => (Math.round(n * 100) / 100).toFixed(2) + '%';
+
+    // Effective monthly rate from nominal annual rate (semi-annual compounding)
+    function monthlyRate(annualPct) {
+        return Math.pow(1 + annualPct / 200, 1 / 6) - 1;
+    }
+
+    // Standard mortgage payment: P, periodic rate r, n periods
+    function payment(P, r, n) {
+        if (r === 0) return P / n;
+        return P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+    }
+
+    // CMHC rate given down payment %
+    function cmhcRate(dpPct) {
+        if (dpPct >= 20) return 0;
+        if (dpPct >= 15) return 0.028;
+        if (dpPct >= 10) return 0.031;
+        return 0.04; // 5–9.99%
+    }
+
+    let dpMode = 'percent'; // 'percent' or 'dollar'
+
+    function calculate() {
+        const price    = parseFloat(document.getElementById('mc-price').value) || 0;
+        const dpVal    = parseFloat(document.getElementById('mc-dp').value)    || 0;
+        const rate     = parseFloat(document.getElementById('mc-rate').value)  || 0;
+        const amort    = parseInt(document.getElementById('mc-amort').value)   || 25;
+        const freq     = document.getElementById('mc-freq').value;
+
+        // Down payment
+        let dpAmount, dpPct;
+        if (dpMode === 'percent') {
+            dpPct    = dpVal;
+            dpAmount = price * dpVal / 100;
+        } else {
+            dpAmount = dpVal;
+            dpPct    = price > 0 ? (dpVal / price) * 100 : 0;
+        }
+
+        // CMHC
+        const insuredMortgage = price - dpAmount;
+        const cmhcRt  = cmhcRate(dpPct);
+        const cmhcAmt = insuredMortgage * cmhcRt;
+        const principal = insuredMortgage + cmhcAmt;
+
+        // Show/hide CMHC notice and result row
+        const hasCmhc = cmhcRt > 0 && price > 0;
+        document.getElementById('cmhcNotice').classList.toggle('show', hasCmhc);
+        document.getElementById('mc-cmhc-row').style.display = hasCmhc ? 'flex' : 'none';
+
+        // Monthly rate (Canadian semi-annual compounding)
+        const rm = monthlyRate(rate);
+
+        // Determine payment based on frequency
+        const monthlyPayment = payment(principal, rm, amort * 12);
+        let pmt, periodsPerYear, freqLabel;
+
+        switch (freq) {
+            case 'monthly':
+                pmt = monthlyPayment;
+                periodsPerYear = 12;
+                freqLabel = 'Monthly Payment';
+                break;
+            case 'semimonthly':
+                // Effective semi-monthly rate
+                const rsm = Math.pow(1 + rm, 0.5) - 1;
+                pmt = payment(principal, rsm, amort * 24);
+                periodsPerYear = 24;
+                freqLabel = 'Semi-Monthly Payment';
+                break;
+            case 'biweekly':
+                // Effective bi-weekly rate
+                const rbw = Math.pow(1 + rm, 6 / 13) - 1;
+                pmt = payment(principal, rbw, amort * 26);
+                periodsPerYear = 26;
+                freqLabel = 'Bi-Weekly Payment';
+                break;
+            case 'weekly':
+                // Effective weekly rate
+                const rw = Math.pow(1 + rm, 3 / 13) - 1;
+                pmt = payment(principal, rw, amort * 52);
+                periodsPerYear = 52;
+                freqLabel = 'Weekly Payment';
+                break;
+            case 'accel-biweekly':
+                // Accelerated: half the monthly payment, 26 times per year
+                pmt = monthlyPayment / 2;
+                periodsPerYear = 26;
+                freqLabel = 'Accel. Bi-Weekly Payment';
+                break;
+            case 'accel-weekly':
+                // Accelerated: quarter of monthly payment, 52 times per year
+                pmt = monthlyPayment / 4;
+                periodsPerYear = 52;
+                freqLabel = 'Accel. Weekly Payment';
+                break;
+            default:
+                pmt = monthlyPayment;
+                periodsPerYear = 12;
+                freqLabel = 'Monthly Payment';
+        }
+
+        // Total interest (use annual equivalent for consistency)
+        const annualPayment = pmt * periodsPerYear;
+        const totalPaid = annualPayment * amort;
+        const totalInterest = totalPaid - principal;
+
+        // Update DOM
+        document.getElementById('mc-freq-label').textContent = freqLabel;
+        document.getElementById('mc-payment').textContent    = fmt(pmt);
+        document.getElementById('mc-r-price').textContent    = fmt(price);
+        document.getElementById('mc-r-dp').textContent       = fmt(dpAmount) + ' (' + pct(dpPct) + ')';
+        document.getElementById('mc-r-cmhc').textContent     = fmt(cmhcAmt);
+        document.getElementById('mc-r-mortgage').textContent = fmt(principal);
+        document.getElementById('mc-r-rate').textContent     = pct(rate) + ' / yr';
+        document.getElementById('mc-r-amort').textContent    = amort + ' years';
+        document.getElementById('mc-r-interest').textContent = fmt(Math.max(0, totalInterest));
+        document.getElementById('mc-r-total').textContent    = fmt(totalPaid);
+    }
+
+    // Down payment toggle
+    document.querySelectorAll('.dp-tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const price   = parseFloat(document.getElementById('mc-price').value) || 0;
+            const dpInput = document.getElementById('mc-dp');
+            const current = parseFloat(dpInput.value) || 0;
+
+            document.querySelectorAll('.dp-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            if (btn.dataset.mode === 'dollar' && dpMode === 'percent') {
+                dpMode = 'dollar';
+                dpInput.value = Math.round(price * current / 100);
+                dpInput.placeholder = '170,000';
+            } else if (btn.dataset.mode === 'percent' && dpMode === 'dollar') {
+                dpMode = 'percent';
+                dpInput.value = price > 0 ? (Math.round(current / price * 1000) / 10) : 20;
+                dpInput.placeholder = '20';
+            }
+            calculate();
+        });
+    });
+
+    // Live calculation on any input change
+    document.querySelectorAll('#mc-price, #mc-dp, #mc-rate, #mc-amort, #mc-freq')
+        .forEach(el => el.addEventListener('input', calculate));
+
+    // Initial calculation
+    calculate();
+    </script>
+</body>
+</html>

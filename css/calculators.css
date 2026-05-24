@@ -1,0 +1,259 @@
+/* ============================================================
+   VIP NEW HOMES — Calculators (Mortgage & HST)
+   ============================================================ */
+
+/* ── Section wrapper ────────────────────────────────────── */
+.calc-section {
+    padding: 72px 24px 96px;
+    background: var(--off-white);
+}
+.calc-inner {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* ── Calculator card: left=inputs, right=results ─────── */
+.calc-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.calc-inputs {
+    padding: 40px 36px;
+    border-right: 1px solid var(--gray-light);
+}
+.calc-results {
+    padding: 40px 36px;
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+}
+.calc-inputs-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--gray-light);
+}
+.calc-results-title {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── Form fields ─────────────────────────────────────── */
+.calc-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+.calc-field label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--gray);
+}
+.calc-field input,
+.calc-field select {
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    color: var(--navy);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: var(--white);
+}
+.calc-field input:focus,
+.calc-field select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,162,39,0.12);
+}
+.calc-field select { cursor: pointer; }
+
+/* down-payment toggle tabs */
+.dp-toggle {
+    display: flex;
+    gap: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+.dp-tab {
+    flex: 1;
+    padding: 9px 0;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease;
+    background: var(--white);
+    color: var(--gray);
+    border: none;
+    font-family: var(--font-sans);
+}
+.dp-tab.active {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+/* use-type toggle (HST) */
+.use-toggle {
+    display: flex;
+    gap: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+.use-tab {
+    flex: 1;
+    padding: 11px 0;
+    text-align: center;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease;
+    background: var(--white);
+    color: var(--gray);
+    border: none;
+    font-family: var(--font-sans);
+}
+.use-tab.active {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+/* CMHC badge */
+.cmhc-notice {
+    display: none;
+    background: rgba(201,162,39,0.1);
+    border: 1px solid rgba(201,162,39,0.3);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    color: #7a5c00;
+    line-height: 1.5;
+    margin-top: 4px;
+}
+.cmhc-notice.show { display: block; }
+
+/* ── Results panel ────────────────────────────────────── */
+.result-primary-label {
+    font-size: 0.67rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.38);
+    margin-bottom: 6px;
+}
+.result-primary-value {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.result-primary-sub {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 32px;
+}
+.result-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    flex: 1;
+}
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.result-row-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.48);
+}
+.result-row-value {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+}
+.result-row.highlight .result-row-label { color: var(--gold-light); }
+.result-row.highlight .result-row-value { color: var(--gold); font-size: 1rem; }
+.result-note {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.28);
+    line-height: 1.6;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.result-note a { color: rgba(201,162,39,0.7); text-decoration: underline; }
+.result-note a:hover { color: var(--gold); }
+
+/* ── Cross-link bar ───────────────────────────────────── */
+.calc-crosslink {
+    background: var(--navy);
+    padding: 20px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+}
+.calc-crosslink p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+}
+.calc-crosslink a {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--gold);
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+.calc-crosslink a:hover { color: var(--gold-light); }
+
+/* ── Disclaimer box ───────────────────────────────────── */
+.calc-disclaimer {
+    margin-top: 28px;
+    background: rgba(201,162,39,0.06);
+    border: 1px solid rgba(201,162,39,0.15);
+    border-radius: 10px;
+    padding: 18px 22px;
+    font-size: 0.78rem;
+    color: var(--gray-dark);
+    line-height: 1.65;
+}
+.calc-disclaimer strong { color: var(--navy); }
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 768px) {
+    .calc-card { grid-template-columns: 1fr; }
+    .calc-inputs {
+        border-right: none;
+        border-bottom: 1px solid var(--gray-light);
+        padding: 28px 20px;
+    }
+    .calc-results { padding: 28px 20px; }
+    .result-primary-value { font-size: 2.4rem; }
+    .calc-crosslink { flex-direction: column; align-items: flex-start; gap: 10px; padding: 18px 20px; }
+    .calc-section { padding: 48px 16px 72px; }
+}
