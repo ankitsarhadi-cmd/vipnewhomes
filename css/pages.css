@@ -408,3 +408,141 @@
     .wpc-hst-num   { font-size: 2rem; }
     .wpc-grid      { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   WHY US PAGE  (.wu-*)
+   ============================================================ */
+
+/* Stats Strip */
+.wu-stats {
+    background: var(--navy);
+    border-bottom: 1px solid rgba(201,162,39,0.18);
+    padding: 40px 24px;
+}
+.wu-stats-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+.wu-stat {
+    flex: 1;
+    text-align: center;
+    padding: 0 32px;
+}
+.wu-stat + .wu-stat {
+    border-left: 1px solid rgba(201,162,39,0.2);
+}
+.wu-stat-num {
+    font-family: var(--font-serif);
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+}
+.wu-stat-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+}
+
+/* Main Section */
+.wu-section {
+    padding: 72px 24px 88px;
+    background: #f7f8fa;
+}
+.wu-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+}
+
+/* Intro Block */
+.wu-intro {
+    max-width: 760px;
+    margin: 0 auto 56px;
+    text-align: center;
+}
+.wu-intro-title {
+    font-family: var(--font-serif);
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+.wu-intro-text {
+    font-size: 0.98rem;
+    color: var(--gray-dark);
+    line-height: 1.75;
+}
+
+/* Differentiator Cards */
+.wu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+.wu-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 3px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.wu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 32px rgba(0,0,0,0.10);
+    border-top-color: var(--gold);
+}
+.wu-card-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+}
+.wu-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.25;
+}
+.wu-card-text {
+    font-size: 0.875rem;
+    color: var(--gray-dark);
+    line-height: 1.7;
+    flex: 1;
+}
+.wu-card-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(201,162,39,0.1);
+    color: var(--navy);
+    font-size: 0.69rem;
+    font-weight: 600;
+    border-radius: 20px;
+    border: 1px solid rgba(201,162,39,0.25);
+    width: fit-content;
+    margin-top: 4px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .wu-grid { grid-template-columns: repeat(2, 1fr); }
+    .wu-stat-num { font-size: 2rem; }
+}
+@media (max-width: 640px) {
+    .wu-stats-inner { flex-direction: column; gap: 24px; }
+    .wu-stat + .wu-stat { border-left: none; border-top: 1px solid rgba(201,162,39,0.2); padding-top: 24px; }
+    .wu-section { padding: 48px 16px 64px; }
+    .wu-grid { grid-template-columns: 1fr; }
+    .wu-intro-title { font-size: 1.45rem; }
+}
