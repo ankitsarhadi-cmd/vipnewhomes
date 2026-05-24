@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HST Rebate Calculator Ontario | VIP New Homes | Team Sarhadi</title>
-    <meta name="description" content="Calculate your Ontario new home HST rebate. Federal rebate up to $6,300 + Ontario rebate up to $24,000. Primary residence vs investment property comparison.">
+    <title>HST Rebate Calculator Ontario 2026 | VIP New Homes | Team Sarhadi</title>
+    <meta name="description" content="Calculate your Ontario new home HST rebate under 2026 rules. Full 13% rebate on homes up to $1M — max $130,000. Applies to primary residence and rental properties.">
 
     <!-- SEO -->
     <link rel="canonical" href="https://vipnewhomes.ca/hst-calculator.html">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vipnewhomes.ca/hst-calculator.html">
     <meta property="og:title" content="HST Rebate Calculator Ontario | VIP New Homes">
-    <meta property="og:description" content="Calculate your Ontario new home HST rebate. Federal rebate up to $6,300 + Ontario rebate up to $24,000 for primary residences.">
+    <meta property="og:description" content="Calculate your Ontario new home HST rebate under 2026 rules. Full 13% rebate on homes up to $1M — max $130,000.">
     <meta property="og:site_name" content="VIP New Homes | Team Sarhadi">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="HST Rebate Calculator Ontario | VIP New Homes">
-    <meta name="twitter:description" content="Free Ontario new home HST rebate calculator. See your federal and provincial rebates instantly.">
+    <meta name="twitter:description" content="Free Ontario new home HST rebate calculator — 2026 rules. Max $130,000 on homes up to $1M. Applies to primary residence and rental properties.">
 
     <!-- Structured Data: WebApplication -->
     <script type="application/ld+json">
@@ -24,7 +24,7 @@
       "@type": "WebApplication",
       "name": "Ontario New Home HST Rebate Calculator",
       "url": "https://vipnewhomes.ca/hst-calculator.html",
-      "description": "Calculate the Ontario new housing HST rebate on a new home purchase. Federal rebate up to $6,300 and Ontario rebate up to $24,000 for primary residences.",
+      "description": "Calculate your Ontario new home HST rebate under 2026 rules. Full 13% rebate on homes up to $1M — max $130,000. Applies to primary residence and residential rental.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web Browser",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" },
@@ -107,9 +107,9 @@
     <!-- ========== HERO ========== -->
     <section class="page-hero">
         <div class="page-hero-inner">
-            <p class="page-hero-tag">Free Tool · Ontario 2025</p>
+            <p class="page-hero-tag">Free Tool · Ontario 2026</p>
             <h1 class="page-hero-title">HST Rebate <span class="gold">Calculator</span></h1>
-            <p class="page-hero-sub">Federal rebate up to $6,300 · Ontario rebate up to $24,000. See exactly what you'll pay on a new Ontario home.</p>
+            <p class="page-hero-sub">New Ontario 2026 rules — full 13% rebate on homes up to $1M, max $130,000. See exactly what you'll pay on any new Ontario home.</p>
         </div>
     </section>
 
@@ -145,7 +145,7 @@
 
                     <!-- Info box -->
                     <div class="cmhc-notice show" id="hst-info" style="margin-top:0; margin-bottom:4px;">
-                        <strong>How builder pricing works:</strong> Most builder prices for primary residences are quoted <em>inclusive</em> of HST with the rebate already applied. If your purchase is for investment, the full HST may apply and significantly affect closing costs.
+                        <strong>New Ontario rules (Apr 1, 2026–Mar 31, 2027):</strong> Full 13% HST rebate on homes up to $1M. Flat $130K rebate from $1M–$1.5M. Declining rebate from $1.5M to $24K at $1.85M+. Applies to primary residence and residential rental.
                     </div>
                 </div>
 
@@ -167,11 +167,11 @@
                             <span class="result-row-value" id="hst-r-gross">—</span>
                         </div>
                         <div class="result-row">
-                            <span class="result-row-label">Federal Rebate (max $6,300)</span>
+                            <span class="result-row-label">Federal Portion of Rebate (5%)</span>
                             <span class="result-row-value" id="hst-r-fed">—</span>
                         </div>
                         <div class="result-row">
-                            <span class="result-row-label">Ontario Rebate (max $24,000)</span>
+                            <span class="result-row-label">Ontario Portion of Rebate (8%)</span>
                             <span class="result-row-value" id="hst-r-ont">—</span>
                         </div>
                         <div class="result-row highlight">
@@ -267,65 +267,62 @@
     <script src="js/main.js"></script>
     <script>
     /* ============================================================
-       Ontario New Home HST Rebate Calculator
-       Federal: phases out $350K–$450K, max $6,300
-       Ontario: 75% of provincial (8%), max $24,000
+       Ontario New Home HST Rebate Calculator — 2026 Rules
+       New Ontario rules (APS signed Apr 1, 2026 – Mar 31, 2027):
+       ≤$1M:          Full 13% rebate (max $130,000)
+       $1M–$1.5M:     Flat $130,000
+       $1.5M–$1.85M:  Declining $130K → $24K proportionally
+       >$1.85M:       $24,000 (existing rebate)
+       Applies to primary residence AND residential rental property
        ============================================================ */
 
-    const fmt = n => '$' + Math.round(n).toLocaleString('en-CA');
+    const fmt = n => {
+        const abs = Math.abs(Math.round(n));
+        return (n < 0 ? '-' : '') + '$' + abs.toLocaleString('en-CA');
+    };
 
-    let useMode = 'primary'; // 'primary' or 'investment'
+    let useMode = 'primary';
 
-    function calcFederalRebate(price) {
-        // Federal new housing rebate: 36% of federal 5% tax
-        // Max $6,300 (at $350K). Phases out between $350K–$450K.
-        if (price <= 350000) {
-            return price * 0.05 * 0.36; // = price * 1.8%
-        } else if (price < 450000) {
-            return 6300 * (450000 - price) / 100000;
+    function calcHSTRebate(price) {
+        if (price <= 1000000) {
+            return price * 0.13;
+        } else if (price <= 1500000) {
+            return 130000;
+        } else if (price <= 1850000) {
+            return 130000 - 106000 * (price - 1500000) / 350000;
         }
-        return 0;
-    }
-
-    function calcOntarioRebate(price) {
-        // Ontario new housing rebate: 75% of provincial 8% tax, max $24,000
-        return Math.min(price * 0.08 * 0.75, 24000);
+        return 24000;
     }
 
     function calculate() {
-        const price = parseFloat(document.getElementById('hst-price').value) || 0;
+        const price       = parseFloat(document.getElementById('hst-price').value) || 0;
+        const grossHST    = price * 0.13;
+        const totalRebate = calcHSTRebate(price);
+        const fedRebate   = totalRebate * (5 / 13);
+        const ontRebate   = totalRebate * (8 / 13);
+        const netHST      = grossHST - totalRebate;
+        const allIn       = price + Math.max(0, netHST);
 
-        const grossHST = price * 0.13;
-        let fedRebate = 0;
-        let ontRebate = 0;
-        let noteText  = '';
-
-        if (useMode === 'primary') {
-            fedRebate = calcFederalRebate(price);
-            ontRebate = calcOntarioRebate(price);
-            noteText = price > 450000
-                ? 'Federal rebate is $0 for homes over $450,000. Ontario rebate (up to $24,000) still applies for primary residences.'
-                : 'Federal rebate phases out between $350K–$450K. Ontario rebate (75% of provincial portion) is capped at $24,000.';
+        let noteText;
+        if (price <= 1000000) {
+            noteText = 'Full 13% HST rebate applies — max $130,000. APS must be signed Apr 1, 2026–Mar 31, 2027. Applies to both primary residence and residential rental.';
+        } else if (price <= 1500000) {
+            noteText = 'Flat $130,000 rebate for homes $1M–$1.5M under new Ontario 2026 rules. APS must be signed Apr 1, 2026–Mar 31, 2027.';
+        } else if (price <= 1850000) {
+            noteText = 'Rebate declines proportionally between $1.5M and $1.85M — from $130,000 down to $24,000. APS must be signed Apr 1, 2026–Mar 31, 2027.';
         } else {
-            noteText = 'Investment and rental properties do not qualify for the standard new housing HST rebate. The full HST (13%) applies. A qualified accountant may help claim the New Residential Rental Property (NRRP) rebate. Consult your real estate lawyer.';
+            noteText = 'Existing $24,000 rebate applies for homes above $1.85M. APS must be signed Apr 1, 2026–Mar 31, 2027.';
         }
 
-        const totalRebate = fedRebate + ontRebate;
-        const netHST      = grossHST - totalRebate;
-        const allIn       = price + netHST;
-
-        // Update DOM
         document.getElementById('hst-total-rebate').textContent = fmt(totalRebate);
-        document.getElementById('hst-rebate-sub').textContent   = useMode === 'primary'
-            ? 'Federal + Ontario combined'
-            : 'No standard rebate — investment property';
-        document.getElementById('hst-r-price').textContent  = fmt(price);
-        document.getElementById('hst-r-gross').textContent  = fmt(grossHST);
-        document.getElementById('hst-r-fed').textContent    = useMode === 'primary' ? fmt(fedRebate) : 'N/A';
-        document.getElementById('hst-r-ont').textContent    = useMode === 'primary' ? fmt(ontRebate) : 'N/A';
-        document.getElementById('hst-r-net').textContent    = fmt(Math.max(0, netHST));
-        document.getElementById('hst-r-allin').textContent  = fmt(allIn);
-        document.getElementById('hst-note').innerHTML       = noteText + ' <a href="faq.html">See our FAQ</a> for more detail.';
+        document.getElementById('hst-rebate-sub').textContent   = 'Federal + Ontario combined (2026 rules)';
+        document.getElementById('hst-r-price').textContent      = fmt(price);
+        document.getElementById('hst-r-gross').textContent      = fmt(grossHST);
+        document.getElementById('hst-r-fed').textContent        = fmt(fedRebate);
+        document.getElementById('hst-r-ont').textContent        = fmt(ontRebate);
+        document.getElementById('hst-r-net').textContent        = fmt(Math.max(0, netHST));
+        document.getElementById('hst-r-allin').textContent      = fmt(allIn);
+        document.getElementById('hst-note').innerHTML           = noteText + ' <a href="faq.html">See our FAQ</a> for more detail.';
     }
 
     // Use toggle
@@ -337,9 +334,9 @@
 
             const info = document.getElementById('hst-info');
             if (useMode === 'investment') {
-                info.innerHTML = '<strong>Investment / Rental:</strong> The standard new housing HST rebate does not apply. The full 13% HST is added to closing costs. Your lawyer and accountant will advise on the NRRP rebate if applicable.';
+                info.innerHTML = '<strong>Investment / Rental:</strong> Under new Ontario 2026 rules, residential rental properties qualify for the same HST rebate as primary residences. Confirm eligibility and details with your real estate lawyer.';
             } else {
-                info.innerHTML = '<strong>How builder pricing works:</strong> Most builder prices for primary residences are quoted <em>inclusive</em> of HST with the rebate already applied. If your purchase is for investment, the full HST may apply and significantly affect closing costs.';
+                info.innerHTML = '<strong>New Ontario rules (Apr 1, 2026–Mar 31, 2027):</strong> Full 13% HST rebate on homes up to $1M. Flat $130K rebate from $1M–$1.5M. Declining rebate from $1.5M to $24K at $1.85M+.';
             }
             calculate();
         });

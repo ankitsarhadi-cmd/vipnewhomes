@@ -107,21 +107,23 @@
     <!-- ========== HERO ========== -->
     <section class="page-hero">
         <div class="page-hero-inner">
-            <p class="page-hero-tag">Free Tool · Ontario</p>
-            <h1 class="page-hero-title">Mortgage <span class="gold">Payment Calculator</span></h1>
-            <p class="page-hero-sub">Canadian semi-annual compounding. CMHC insurance. All payment frequencies. Built for Ontario buyers.</p>
+            <p class="page-hero-tag">Free Tools · Ontario</p>
+            <h1 class="page-hero-title">Mortgage &amp; HST <span class="gold">Calculators</span></h1>
+            <p class="page-hero-sub">Two tools in one place — estimate your monthly costs and your HST rebate on any Ontario new home.</p>
         </div>
     </section>
 
-    <!-- ========== CALCULATOR ========== -->
-    <section class="calc-section">
+    <!-- ======================================================
+         MORTGAGE CALCULATOR
+    ====================================================== -->
+    <section class="calc-section" id="mortgage">
         <div class="calc-inner">
 
             <div class="calc-card">
 
                 <!-- ── Inputs ── -->
                 <div class="calc-inputs">
-                    <p class="calc-inputs-title">Your Mortgage Details</p>
+                    <p class="calc-inputs-title">Mortgage Details</p>
 
                     <div class="calc-field">
                         <label for="mc-price">Purchase Price</label>
@@ -136,12 +138,12 @@
                         </div>
                         <input type="number" id="mc-dp" placeholder="20" min="5" step="0.5" value="20">
                         <div class="cmhc-notice" id="cmhcNotice">
-                            <strong>CMHC Insurance applies.</strong> Down payments under 20% require mortgage default insurance. Your insured amount will be added to the mortgage principal.
+                            <strong>CMHC Insurance applies.</strong> Down payments under 20% require mortgage default insurance. The premium is added to your mortgage principal.
                         </div>
                     </div>
 
                     <div class="calc-field">
-                        <label for="mc-rate">Interest Rate (% per year)</label>
+                        <label for="mc-rate">Interest Rate (% / year)</label>
                         <input type="number" id="mc-rate" placeholder="5.19" min="0.5" max="20" step="0.05" value="5.19">
                     </div>
 
@@ -168,17 +170,54 @@
                         </select>
                     </div>
 
+                    <!-- Monthly Expenses -->
+                    <div class="calc-inputs-group">
+                        <p class="calc-inputs-group-title">Monthly Carrying Costs <em style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</em></p>
+
+                        <div class="calc-field">
+                            <label for="mc-tax">Property Tax / year</label>
+                            <input type="number" id="mc-tax" placeholder="e.g. 6,500" min="0" step="100" value="0">
+                        </div>
+
+                        <div class="calc-field">
+                            <label for="mc-condo">Condo / HOA Fees / month</label>
+                            <input type="number" id="mc-condo" placeholder="e.g. 450" min="0" step="10" value="0">
+                        </div>
+
+                        <div class="calc-field">
+                            <label for="mc-heat">Heat &amp; Utilities / month</label>
+                            <input type="number" id="mc-heat" placeholder="e.g. 200" min="0" step="10" value="0">
+                        </div>
+
+                        <div class="calc-field">
+                            <label for="mc-other">Other Expenses / month</label>
+                            <input type="number" id="mc-other" placeholder="e.g. 150" min="0" step="10" value="0">
+                        </div>
+                    </div>
+
+                    <!-- Rental Income -->
+                    <div class="calc-inputs-group">
+                        <p class="calc-inputs-group-title">Rental / Investment Income <em style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</em></p>
+
+                        <div class="calc-field">
+                            <label for="mc-rental">Monthly Rental Income</label>
+                            <input type="number" id="mc-rental" placeholder="e.g. 2,500" min="0" step="50" value="0">
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- ── Results ── -->
-                <div class="calc-results" id="mc-results">
+                <div class="calc-results">
                     <p class="calc-results-title">Your Estimate</p>
 
                     <p class="result-primary-label" id="mc-freq-label">Monthly Payment</p>
                     <p class="result-primary-value" id="mc-payment">$0</p>
                     <p class="result-primary-sub">Estimated — see disclaimer below</p>
 
+                    <!-- Section 1: Mortgage Breakdown -->
                     <div class="result-breakdown">
+                        <p class="result-section-label">Mortgage Breakdown</p>
                         <div class="result-row">
                             <span class="result-row-label">Purchase Price</span>
                             <span class="result-row-value" id="mc-r-price">—</span>
@@ -188,7 +227,7 @@
                             <span class="result-row-value" id="mc-r-dp">—</span>
                         </div>
                         <div class="result-row" id="mc-cmhc-row" style="display:none;">
-                            <span class="result-row-label">CMHC Insurance</span>
+                            <span class="result-row-label">CMHC Insurance Premium</span>
                             <span class="result-row-value" id="mc-r-cmhc">—</span>
                         </div>
                         <div class="result-row highlight">
@@ -213,21 +252,159 @@
                         </div>
                     </div>
 
+                    <!-- Section 2: Monthly Carrying Costs -->
+                    <div class="result-section">
+                        <p class="result-section-label">Monthly Carrying Costs</p>
+                        <div class="result-row">
+                            <span class="result-row-label" id="mc-r-pmt-label">Mortgage Payment</span>
+                            <span class="result-row-value" id="mc-r-pmt-mo">—</span>
+                        </div>
+                        <div class="result-row" id="mc-r-tax-row" style="display:none;">
+                            <span class="result-row-label">Property Tax</span>
+                            <span class="result-row-value" id="mc-r-tax">—</span>
+                        </div>
+                        <div class="result-row" id="mc-r-condo-row" style="display:none;">
+                            <span class="result-row-label">Condo / HOA Fees</span>
+                            <span class="result-row-value" id="mc-r-condo">—</span>
+                        </div>
+                        <div class="result-row" id="mc-r-heat-row" style="display:none;">
+                            <span class="result-row-label">Heat &amp; Utilities</span>
+                            <span class="result-row-value" id="mc-r-heat">—</span>
+                        </div>
+                        <div class="result-row" id="mc-r-other-row" style="display:none;">
+                            <span class="result-row-label">Other Expenses</span>
+                            <span class="result-row-value" id="mc-r-other">—</span>
+                        </div>
+                        <div class="result-row" id="mc-r-rental-row" style="display:none;">
+                            <span class="result-row-label">Less: Rental Income</span>
+                            <span class="result-row-value" id="mc-r-rental" style="color:#4ade80;">—</span>
+                        </div>
+                        <div class="result-total-box">
+                            <span class="result-total-box-label">Total Monthly Cost</span>
+                            <span class="result-total-box-value" id="mc-r-monthly-total">—</span>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Closing Cost Estimate -->
+                    <div class="result-section">
+                        <p class="result-section-label">Closing Cost Estimate (1.5%–4%)</p>
+                        <div class="closing-grid">
+                            <div class="closing-item">
+                                <p class="closing-item-range">Low 1.5%</p>
+                                <p class="closing-item-value" id="mc-r-close-lo">—</p>
+                            </div>
+                            <div class="closing-item">
+                                <p class="closing-item-range">Mid 2.5%</p>
+                                <p class="closing-item-value" id="mc-r-close-mid">—</p>
+                            </div>
+                            <div class="closing-item">
+                                <p class="closing-item-range">High 4.0%</p>
+                                <p class="closing-item-value" id="mc-r-close-hi">—</p>
+                            </div>
+                        </div>
+                        <p style="font-size:0.68rem;color:rgba(255,255,255,0.3);margin-top:8px;line-height:1.5;">Includes Land Transfer Tax, legal fees, title insurance &amp; adjustments. First-time buyers may qualify for LTT rebate.</p>
+                    </div>
+
                     <p class="result-note">
-                        Calculations use Canadian semi-annual compounding as required by the <em>Interest Act</em>. CMHC rates: 5–9.99% → 4.00%, 10–14.99% → 3.10%, 15–19.99% → 2.80%. For a personalized rate, speak with a mortgage broker from our network — <a href="index.html#contact">register here</a>.
+                        Uses Canadian semi-annual compounding per the <em>Interest Act</em>. CMHC rates: 5–9.99%→4.00%, 10–14.99%→3.10%, 15–19.99%→2.80%. Connect with a mortgage broker from our network — <a href="index.html#contact">register here</a>.
                     </p>
                 </div>
             </div>
 
-            <!-- Cross-link bar -->
-            <div class="calc-crosslink">
-                <p>Also estimate your HST costs and rebate on a new Ontario home.</p>
-                <a href="hst-calculator.html">HST Rebate Calculator →</a>
+            <div class="calc-disclaimer">
+                <strong>Disclaimer:</strong> For <strong>estimation only</strong> — not financial advice. Assumes fixed rate, level payments, no prepayments. Actual costs depend on your lender, rate, and terms. CMHC premiums and closing costs are approximate. Closing costs vary significantly by municipality and buyer profile. Always consult a licensed mortgage broker, lawyer, and financial advisor. E.&amp;O.E.
             </div>
 
-            <!-- Disclaimer -->
+        </div>
+    </section>
+
+    <!-- ======================================================
+         HST REBATE CALCULATOR (inline — always visible)
+    ====================================================== -->
+    <div class="calc-section-header" id="hst">
+        <p class="section-tag">Ontario 2026 · Free Tool</p>
+        <h2>HST Rebate <span class="gold">Calculator</span></h2>
+        <p>New Ontario rules in effect April 1, 2026 – March 31, 2027. Full 13% rebate on homes up to $1M — max $130,000.</p>
+    </div>
+
+    <section class="calc-section" style="padding-top:24px;">
+        <div class="calc-inner">
+
+            <div class="calc-card">
+
+                <!-- ── Inputs ── -->
+                <div class="calc-inputs">
+                    <p class="calc-inputs-title">Purchase Details</p>
+
+                    <div class="calc-field">
+                        <label>Intended Use</label>
+                        <div class="use-toggle" id="useToggle">
+                            <button class="use-tab active" data-mode="primary">Primary Residence</button>
+                            <button class="use-tab" data-mode="investment">Investment / Rental</button>
+                        </div>
+                    </div>
+
+                    <div class="calc-field">
+                        <label for="hst-price">Purchase Price (before HST)</label>
+                        <input type="number" id="hst-price" placeholder="750,000" min="100000" max="5000000" step="5000" value="750000">
+                    </div>
+
+                    <div class="calc-field">
+                        <label for="hst-province">Province</label>
+                        <select id="hst-province">
+                            <option value="ON" selected>Ontario (HST 13%)</option>
+                        </select>
+                    </div>
+
+                    <div class="cmhc-notice show" id="hst-info" style="margin-top:4px;">
+                        <strong>New Ontario rules (Apr 1, 2026 – Mar 31, 2027):</strong> Full 13% HST rebate on homes up to $1M. Flat $130K rebate from $1M–$1.5M. Declining rebate from $1.5M to $24K at $1.85M+.
+                    </div>
+                </div>
+
+                <!-- ── Results ── -->
+                <div class="calc-results">
+                    <p class="calc-results-title">HST Breakdown</p>
+
+                    <p class="result-primary-label">Total HST Rebate</p>
+                    <p class="result-primary-value" id="hst-total-rebate">$0</p>
+                    <p class="result-primary-sub" id="hst-rebate-sub">Federal + Ontario combined</p>
+
+                    <div class="result-breakdown">
+                        <p class="result-section-label">Rebate Breakdown</p>
+                        <div class="result-row">
+                            <span class="result-row-label">Purchase Price</span>
+                            <span class="result-row-value" id="hst-r-price">—</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-row-label">Gross HST (13%)</span>
+                            <span class="result-row-value" id="hst-r-gross">—</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-row-label">Federal Portion of Rebate (5%)</span>
+                            <span class="result-row-value" id="hst-r-fed">—</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-row-label">Ontario Portion of Rebate (8%)</span>
+                            <span class="result-row-value" id="hst-r-ont">—</span>
+                        </div>
+                        <div class="result-row highlight">
+                            <span class="result-row-label">Net HST Payable</span>
+                            <span class="result-row-value" id="hst-r-net">—</span>
+                        </div>
+                        <div class="result-row highlight">
+                            <span class="result-row-label">All-In Price (incl. net HST)</span>
+                            <span class="result-row-value" id="hst-r-allin">—</span>
+                        </div>
+                    </div>
+
+                    <p class="result-note" id="hst-note">
+                        New Ontario rules: full 13% rebate on homes ≤$1M (max $130K). Flat $130K rebate $1M–$1.5M. Declines proportionally from $1.5M to $24K at $1.85M. Above $1.85M: $24K rebate. Eligibility requires APS signed Apr 1, 2026–Mar 31, 2027. <a href="faq.html">See FAQ</a> for details.
+                    </p>
+                </div>
+            </div>
+
             <div class="calc-disclaimer">
-                <strong>Disclaimer:</strong> This calculator is for <strong>estimation purposes only</strong> and does not constitute financial advice. Results assume a fixed rate for the full amortization period, level payments, no prepayments, and are rounded to the nearest dollar. Actual payments will depend on your lender, rate, payment schedule, and mortgage terms. CMHC insurance premiums shown are approximate and subject to change. Always consult a licensed mortgage broker or financial advisor before making any borrowing decisions. E.&amp;O.E.
+                <strong>Disclaimer:</strong> For <strong>estimation only</strong> — not legal or financial advice. HST rebate eligibility subject to CRA conditions, intended use, and APS signing date. Rules may change. Investment/rental properties have different rebate rules. Always confirm with your real estate lawyer before closing. E.&amp;O.E.
             </div>
 
         </div>
@@ -236,8 +413,8 @@
     <!-- ========== CTA ========== -->
     <section class="hiw-cta">
         <div class="hiw-cta-inner">
-            <h2>Ready to Get <span class="gold">Pre-Approved?</span></h2>
-            <p>We'll connect you with a trusted mortgage broker from our network — at no cost to you.</p>
+            <h2>Ready to Run <span class="gold">Your Numbers?</span></h2>
+            <p>We walk every client through a full cost breakdown before they sign. Register free — no obligation.</p>
             <div class="hiw-cta-btns">
                 <a href="index.html#contact" class="btn btn-primary">Register for Free</a>
                 <a href="tel:4162002620" class="btn btn-outline">Call 416-200-2620</a>
@@ -296,40 +473,54 @@
     <script src="js/main.js"></script>
     <script>
     /* ============================================================
-       Ontario Mortgage Calculator
-       Canadian semi-annual compounding (Interest Act)
+       VIP New Homes — Combined Calculators
+       1. Ontario Mortgage Calculator (Canadian semi-annual compounding)
+       2. Ontario New Home HST Rebate Calculator (2026 rules)
        ============================================================ */
 
-    const fmt = n => '$' + Math.round(n).toLocaleString('en-CA');
+    // ── Utility helpers ────────────────────────────────────────
+    const fmt = n => {
+        const abs = Math.abs(Math.round(n));
+        return (n < 0 ? '-' : '') + '$' + abs.toLocaleString('en-CA');
+    };
     const pct = n => (Math.round(n * 100) / 100).toFixed(2) + '%';
 
-    // Effective monthly rate from nominal annual rate (semi-annual compounding)
+    // ── MORTGAGE CALCULATOR ────────────────────────────────────
+
+    // Effective monthly rate from nominal annual (semi-annual compounding, Interest Act)
     function monthlyRate(annualPct) {
         return Math.pow(1 + annualPct / 200, 1 / 6) - 1;
     }
 
-    // Standard mortgage payment: P, periodic rate r, n periods
+    // Standard level-payment formula
     function payment(P, r, n) {
         if (r === 0) return P / n;
         return P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
     }
 
-    // CMHC rate given down payment %
+    // CMHC insurance premium rate
     function cmhcRate(dpPct) {
         if (dpPct >= 20) return 0;
         if (dpPct >= 15) return 0.028;
         if (dpPct >= 10) return 0.031;
-        return 0.04; // 5–9.99%
+        return 0.04;
     }
 
-    let dpMode = 'percent'; // 'percent' or 'dollar'
+    let dpMode = 'percent';
 
-    function calculate() {
-        const price    = parseFloat(document.getElementById('mc-price').value) || 0;
-        const dpVal    = parseFloat(document.getElementById('mc-dp').value)    || 0;
-        const rate     = parseFloat(document.getElementById('mc-rate').value)  || 0;
-        const amort    = parseInt(document.getElementById('mc-amort').value)   || 25;
-        const freq     = document.getElementById('mc-freq').value;
+    function calcMortgage() {
+        const price  = parseFloat(document.getElementById('mc-price').value)  || 0;
+        const dpVal  = parseFloat(document.getElementById('mc-dp').value)     || 0;
+        const rate   = parseFloat(document.getElementById('mc-rate').value)   || 0;
+        const amort  = parseInt(document.getElementById('mc-amort').value)    || 25;
+        const freq   = document.getElementById('mc-freq').value;
+
+        // Optional carrying costs
+        const taxYear = parseFloat(document.getElementById('mc-tax').value)    || 0;
+        const condo   = parseFloat(document.getElementById('mc-condo').value)  || 0;
+        const heat    = parseFloat(document.getElementById('mc-heat').value)   || 0;
+        const other   = parseFloat(document.getElementById('mc-other').value)  || 0;
+        const rental  = parseFloat(document.getElementById('mc-rental').value) || 0;
 
         // Down payment
         let dpAmount, dpPct;
@@ -343,83 +534,100 @@
 
         // CMHC
         const insuredMortgage = price - dpAmount;
-        const cmhcRt  = cmhcRate(dpPct);
-        const cmhcAmt = insuredMortgage * cmhcRt;
+        const cmhcRt   = cmhcRate(dpPct);
+        const cmhcAmt  = insuredMortgage * cmhcRt;
         const principal = insuredMortgage + cmhcAmt;
 
-        // Show/hide CMHC notice and result row
         const hasCmhc = cmhcRt > 0 && price > 0;
         document.getElementById('cmhcNotice').classList.toggle('show', hasCmhc);
         document.getElementById('mc-cmhc-row').style.display = hasCmhc ? 'flex' : 'none';
 
-        // Monthly rate (Canadian semi-annual compounding)
+        // Monthly rate
         const rm = monthlyRate(rate);
+        const monthlyPmt = payment(principal, rm, amort * 12);
 
-        // Determine payment based on frequency
-        const monthlyPayment = payment(principal, rm, amort * 12);
-        let pmt, periodsPerYear, freqLabel;
+        let pmt, periodsPerYear, freqLabel, monthlyEquiv;
 
         switch (freq) {
             case 'monthly':
-                pmt = monthlyPayment;
-                periodsPerYear = 12;
-                freqLabel = 'Monthly Payment';
+                pmt = monthlyPmt; periodsPerYear = 12;
+                freqLabel = 'Monthly Payment'; monthlyEquiv = pmt;
                 break;
-            case 'semimonthly':
-                // Effective semi-monthly rate
+            case 'semimonthly': {
                 const rsm = Math.pow(1 + rm, 0.5) - 1;
                 pmt = payment(principal, rsm, amort * 24);
-                periodsPerYear = 24;
-                freqLabel = 'Semi-Monthly Payment';
-                break;
-            case 'biweekly':
-                // Effective bi-weekly rate
+                periodsPerYear = 24; freqLabel = 'Semi-Monthly Payment';
+                monthlyEquiv = pmt * 2; break;
+            }
+            case 'biweekly': {
                 const rbw = Math.pow(1 + rm, 6 / 13) - 1;
                 pmt = payment(principal, rbw, amort * 26);
-                periodsPerYear = 26;
-                freqLabel = 'Bi-Weekly Payment';
-                break;
-            case 'weekly':
-                // Effective weekly rate
+                periodsPerYear = 26; freqLabel = 'Bi-Weekly Payment';
+                monthlyEquiv = pmt * 26 / 12; break;
+            }
+            case 'weekly': {
                 const rw = Math.pow(1 + rm, 3 / 13) - 1;
                 pmt = payment(principal, rw, amort * 52);
-                periodsPerYear = 52;
-                freqLabel = 'Weekly Payment';
-                break;
+                periodsPerYear = 52; freqLabel = 'Weekly Payment';
+                monthlyEquiv = pmt * 52 / 12; break;
+            }
             case 'accel-biweekly':
-                // Accelerated: half the monthly payment, 26 times per year
-                pmt = monthlyPayment / 2;
-                periodsPerYear = 26;
+                pmt = monthlyPmt / 2; periodsPerYear = 26;
                 freqLabel = 'Accel. Bi-Weekly Payment';
-                break;
+                monthlyEquiv = pmt * 26 / 12; break;
             case 'accel-weekly':
-                // Accelerated: quarter of monthly payment, 52 times per year
-                pmt = monthlyPayment / 4;
-                periodsPerYear = 52;
+                pmt = monthlyPmt / 4; periodsPerYear = 52;
                 freqLabel = 'Accel. Weekly Payment';
-                break;
+                monthlyEquiv = pmt * 52 / 12; break;
             default:
-                pmt = monthlyPayment;
-                periodsPerYear = 12;
-                freqLabel = 'Monthly Payment';
+                pmt = monthlyPmt; periodsPerYear = 12;
+                freqLabel = 'Monthly Payment'; monthlyEquiv = pmt;
         }
 
-        // Total interest (use annual equivalent for consistency)
-        const annualPayment = pmt * periodsPerYear;
-        const totalPaid = annualPayment * amort;
-        const totalInterest = totalPaid - principal;
+        const annualPayment  = pmt * periodsPerYear;
+        const totalPaid      = annualPayment * amort;
+        const totalInterest  = totalPaid - principal;
 
-        // Update DOM
-        document.getElementById('mc-freq-label').textContent = freqLabel;
-        document.getElementById('mc-payment').textContent    = fmt(pmt);
-        document.getElementById('mc-r-price').textContent    = fmt(price);
-        document.getElementById('mc-r-dp').textContent       = fmt(dpAmount) + ' (' + pct(dpPct) + ')';
-        document.getElementById('mc-r-cmhc').textContent     = fmt(cmhcAmt);
-        document.getElementById('mc-r-mortgage').textContent = fmt(principal);
-        document.getElementById('mc-r-rate').textContent     = pct(rate) + ' / yr';
-        document.getElementById('mc-r-amort').textContent    = amort + ' years';
-        document.getElementById('mc-r-interest').textContent = fmt(Math.max(0, totalInterest));
-        document.getElementById('mc-r-total').textContent    = fmt(totalPaid);
+        // ── Primary results ──
+        document.getElementById('mc-freq-label').textContent    = freqLabel;
+        document.getElementById('mc-payment').textContent       = fmt(pmt);
+
+        // ── Mortgage breakdown rows ──
+        document.getElementById('mc-r-price').textContent       = fmt(price);
+        document.getElementById('mc-r-dp').textContent          = fmt(dpAmount) + ' (' + pct(dpPct) + ')';
+        document.getElementById('mc-r-cmhc').textContent        = fmt(cmhcAmt);
+        document.getElementById('mc-r-mortgage').textContent    = fmt(principal);
+        document.getElementById('mc-r-rate').textContent        = pct(rate) + ' / yr';
+        document.getElementById('mc-r-amort').textContent       = amort + ' years';
+        document.getElementById('mc-r-interest').textContent    = fmt(Math.max(0, totalInterest));
+        document.getElementById('mc-r-total').textContent       = fmt(totalPaid);
+
+        // ── Monthly carrying costs section ──
+        const taxMo = taxYear / 12;
+        const pmtLabel = freq === 'monthly' ? 'Mortgage Payment' : 'Mortgage Payment (monthly equiv.)';
+        document.getElementById('mc-r-pmt-label').textContent = pmtLabel;
+        document.getElementById('mc-r-pmt-mo').textContent    = fmt(monthlyEquiv);
+
+        function setRow(rowId, valId, value) {
+            document.getElementById(rowId).style.display = value > 0 ? 'flex' : 'none';
+            document.getElementById(valId).textContent = fmt(value);
+        }
+        setRow('mc-r-tax-row',    'mc-r-tax',    taxMo);
+        setRow('mc-r-condo-row',  'mc-r-condo',  condo);
+        setRow('mc-r-heat-row',   'mc-r-heat',   heat);
+        setRow('mc-r-other-row',  'mc-r-other',  other);
+        setRow('mc-r-rental-row', 'mc-r-rental', rental);
+
+        // Total monthly cost (mortgage + carrying − rental)
+        const totalMo = monthlyEquiv + taxMo + condo + heat + other - rental;
+        const totalEl = document.getElementById('mc-r-monthly-total');
+        totalEl.textContent   = fmt(totalMo);
+        totalEl.style.color   = totalMo < 0 ? '#4ade80' : '';
+
+        // ── Closing cost estimates ──
+        document.getElementById('mc-r-close-lo').textContent  = fmt(price * 0.015);
+        document.getElementById('mc-r-close-mid').textContent = fmt(price * 0.025);
+        document.getElementById('mc-r-close-hi').textContent  = fmt(price * 0.04);
     }
 
     // Down payment toggle
@@ -441,16 +649,91 @@
                 dpInput.value = price > 0 ? (Math.round(current / price * 1000) / 10) : 20;
                 dpInput.placeholder = '20';
             }
-            calculate();
+            calcMortgage();
         });
     });
 
-    // Live calculation on any input change
-    document.querySelectorAll('#mc-price, #mc-dp, #mc-rate, #mc-amort, #mc-freq')
-        .forEach(el => el.addEventListener('input', calculate));
+    // Listen to all mortgage inputs
+    ['mc-price','mc-dp','mc-rate','mc-amort','mc-freq',
+     'mc-tax','mc-condo','mc-heat','mc-other','mc-rental'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', calcMortgage);
+    });
 
-    // Initial calculation
-    calculate();
+    // ── HST REBATE CALCULATOR ──────────────────────────────────
+    // Ontario 2026 rules — APS signed Apr 1, 2026 – Mar 31, 2027
+    // ≤$1M:          Full 13% rebate (max $130,000)
+    // $1M–$1.5M:     Flat $130,000
+    // $1.5M–$1.85M:  Declining $130K → $24K proportionally
+    // >$1.85M:        $24,000 (existing rebate)
+    // Applies to primary residence AND residential rental property
+
+    let useMode = 'primary';
+
+    function calcHSTRebate(price) {
+        if (price <= 1000000) {
+            return price * 0.13;
+        } else if (price <= 1500000) {
+            return 130000;
+        } else if (price <= 1850000) {
+            return 130000 - 106000 * (price - 1500000) / 350000;
+        }
+        return 24000;
+    }
+
+    function calcHST() {
+        const price      = parseFloat(document.getElementById('hst-price').value) || 0;
+        const grossHST   = price * 0.13;
+        const totalRebate = calcHSTRebate(price);
+        const fedRebate  = totalRebate * (5 / 13);
+        const ontRebate  = totalRebate * (8 / 13);
+        const netHST     = grossHST - totalRebate;
+        const allIn      = price + Math.max(0, netHST);
+
+        let noteText;
+        if (price <= 1000000) {
+            noteText = 'Full 13% HST rebate applies — max $130,000. APS must be signed Apr 1, 2026–Mar 31, 2027. Applies to both primary residence and residential rental.';
+        } else if (price <= 1500000) {
+            noteText = 'Flat $130,000 rebate for homes $1M–$1.5M under new Ontario 2026 rules. APS must be signed Apr 1, 2026–Mar 31, 2027.';
+        } else if (price <= 1850000) {
+            noteText = 'Rebate declines proportionally between $1.5M and $1.85M — from $130,000 down to $24,000. APS must be signed Apr 1, 2026–Mar 31, 2027.';
+        } else {
+            noteText = 'Existing $24,000 rebate applies for homes above $1.85M. APS must be signed Apr 1, 2026–Mar 31, 2027.';
+        }
+
+        document.getElementById('hst-total-rebate').textContent = fmt(totalRebate);
+        document.getElementById('hst-rebate-sub').textContent   = 'Federal + Ontario combined (2026 rules)';
+        document.getElementById('hst-r-price').textContent      = fmt(price);
+        document.getElementById('hst-r-gross').textContent      = fmt(grossHST);
+        document.getElementById('hst-r-fed').textContent        = fmt(fedRebate);
+        document.getElementById('hst-r-ont').textContent        = fmt(ontRebate);
+        document.getElementById('hst-r-net').textContent        = fmt(Math.max(0, netHST));
+        document.getElementById('hst-r-allin').textContent      = fmt(allIn);
+        document.getElementById('hst-note').innerHTML           = noteText + ' <a href="faq.html">See FAQ</a> for details.';
+    }
+
+    // Use toggle (HST)
+    document.querySelectorAll('.use-tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.use-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            useMode = btn.dataset.mode;
+
+            const info = document.getElementById('hst-info');
+            if (useMode === 'investment') {
+                info.innerHTML = '<strong>Investment / Rental:</strong> Under new Ontario 2026 rules, residential rental properties qualify for the same HST rebate as primary residences. Confirm eligibility and details with your real estate lawyer.';
+            } else {
+                info.innerHTML = '<strong>New Ontario rules (Apr 1, 2026–Mar 31, 2027):</strong> Full 13% HST rebate on homes up to $1M. Flat $130K rebate from $1M–$1.5M. Declining rebate from $1.5M to $24K at $1.85M+.';
+            }
+            calcHST();
+        });
+    });
+
+    document.getElementById('hst-price').addEventListener('input', calcHST);
+
+    // ── Initial calculations ───────────────────────────────────
+    calcMortgage();
+    calcHST();
     </script>
 </body>
 </html>

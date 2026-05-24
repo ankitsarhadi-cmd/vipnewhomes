@@ -244,6 +244,72 @@
 }
 .calc-disclaimer strong { color: var(--navy); }
 
+/* ── Input group dividers ─────────────────────────── */
+.calc-inputs-group {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--gray-light);
+}
+.calc-inputs-group-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gray);
+    margin-bottom: 14px;
+}
+
+/* ── Result section dividers ─────────────────────── */
+.result-section {
+    padding-top: 14px;
+    margin-top: 6px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+.result-section-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.28);
+    margin-bottom: 10px;
+}
+
+/* ── Total monthly cost highlight box ──────────────── */
+.result-total-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(201,162,39,0.14);
+    border: 1px solid rgba(201,162,39,0.3);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 10px;
+}
+.result-total-box-label { font-size: 0.78rem; font-weight: 600; color: var(--gold-light); }
+.result-total-box-value { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--gold); }
+
+/* ── Closing costs 3-col grid ────────────────────── */
+.closing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 10px; }
+.closing-item { background: rgba(255,255,255,0.06); border-radius: 6px; padding: 8px 10px; text-align: center; }
+.closing-item-range { font-size: 0.62rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+.closing-item-value { font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.75); }
+
+/* ── HST section divider on combined page ─────────── */
+.calc-section-header {
+    text-align: center;
+    padding: 56px 24px 8px;
+    background: var(--off-white);
+}
+.calc-section-header h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+.calc-section-header p { font-size: 0.95rem; color: var(--gray); max-width: 520px; margin: 0 auto; }
+.calc-section-header .section-tag { margin-bottom: 6px; }
+
 /* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 768px) {
     .calc-card { grid-template-columns: 1fr; }
@@ -256,4 +322,6 @@
     .result-primary-value { font-size: 2.4rem; }
     .calc-crosslink { flex-direction: column; align-items: flex-start; gap: 10px; padding: 18px 20px; }
     .calc-section { padding: 48px 16px 72px; }
+    .closing-grid { grid-template-columns: 1fr; }
+    .calc-section-header { padding: 40px 20px 8px; }
 }
