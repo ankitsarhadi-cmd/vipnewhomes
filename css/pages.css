@@ -1,0 +1,263 @@
+/* ============================================================
+   VIP NEW HOMES — Shared Inner-Page Styles (How It Works, FAQ)
+   ============================================================ */
+
+/* ── Page Hero ────────────────────────────────────────────── */
+.page-hero {
+    background: var(--navy);
+    padding: 120px 24px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,162,39,0.11) 0%, transparent 65%);
+    pointer-events: none;
+}
+.page-hero-inner { position: relative; z-index: 1; }
+.page-hero-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+.page-hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 12px;
+}
+.page-hero-sub {
+    color: rgba(255,255,255,0.55);
+    font-size: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ── ─────────────────────────────────────────────────────── */
+/* HOW IT WORKS                                              */
+/* ── ─────────────────────────────────────────────────────── */
+
+.hiw-section {
+    background: var(--off-white);
+    padding: 72px 24px 88px;
+}
+.hiw-inner {
+    max-width: 860px;
+    margin: 0 auto;
+}
+.hiw-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+}
+/* vertical connector line */
+.hiw-steps::before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 56px;
+    bottom: 56px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), rgba(201,162,39,0.15));
+    z-index: 0;
+}
+.hiw-step {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    padding: 32px 0;
+    position: relative;
+    z-index: 1;
+}
+.hiw-step:not(:last-child) {
+    border-bottom: 1px solid var(--gray-light);
+}
+.hiw-num {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+.hiw-body { flex: 1; padding-top: 10px; }
+.hiw-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+.hiw-text {
+    color: var(--gray-dark);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+.hiw-tip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: rgba(201,162,39,0.1);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.82rem;
+    color: var(--navy);
+    font-weight: 500;
+}
+
+/* ── deposit table ── */
+.deposit-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 0.88rem;
+}
+.deposit-table th {
+    background: var(--navy);
+    color: var(--gold-light);
+    padding: 8px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+}
+.deposit-table td {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--gray-light);
+    color: var(--gray-dark);
+}
+.deposit-table tr:last-child td { border-bottom: none; }
+.deposit-table tr:nth-child(even) td { background: var(--off-white); }
+
+/* ── CTA strip ── */
+.hiw-cta {
+    background: var(--navy);
+    padding: 56px 24px;
+    text-align: center;
+}
+.hiw-cta-inner { max-width: 480px; margin: 0 auto; }
+.hiw-cta h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--white);
+    margin-bottom: 10px;
+}
+.hiw-cta p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+}
+.hiw-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ── ─────────────────────────────────────────────────────── */
+/* FAQ                                                       */
+/* ── ─────────────────────────────────────────────────────── */
+
+.faq-section {
+    background: var(--off-white);
+    padding: 72px 24px 88px;
+}
+.faq-inner {
+    max-width: 760px;
+    margin: 0 auto;
+}
+.faq-group {
+    margin-bottom: 48px;
+}
+.faq-group-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gray-light);
+}
+.faq-item {
+    border-bottom: 1px solid var(--gray-light);
+}
+.faq-question {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+.faq-question:hover { color: var(--gold); }
+.faq-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--gray-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--navy);
+    transition: background 0.2s ease, transform 0.25s ease;
+    line-height: 1;
+}
+.faq-item.open .faq-icon {
+    background: var(--gold);
+    color: var(--navy);
+    transform: rotate(45deg);
+}
+.faq-answer {
+    display: none;
+    padding: 0 0 20px 0;
+    color: var(--gray-dark);
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+.faq-answer.visible { display: block; }
+.faq-answer strong { color: var(--navy); }
+.faq-answer ul {
+    margin: 10px 0 0 18px;
+    list-style: disc;
+}
+.faq-answer ul li { margin-bottom: 5px; }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .page-hero     { padding: 96px 20px 44px; }
+    .hiw-section,
+    .faq-section   { padding: 48px 16px 64px; }
+    .hiw-steps::before { left: 23px; }
+    .hiw-num       { width: 46px; height: 46px; font-size: 1rem; }
+    .hiw-step      { gap: 18px; }
+    .faq-question  { font-size: 0.93rem; }
+}
