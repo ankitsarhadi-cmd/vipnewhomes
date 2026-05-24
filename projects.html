@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Projects | VIP New Homes | Team Sarhadi Real Estate</title>
+    <meta name="description" content="Browse 27 active pre-construction and move-in-ready projects across Ontario — Peel, Halton, York and GTA. VIP Access through Team Sarhadi Real Estate.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-vip">VIP</span>
+                <span class="logo-text">NEW HOMES</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="projects.html" class="active-link">Projects</a></li>
+                <li><a href="index.html#why-vip">Why VIP</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Register Now</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="projects-hero">
+        <div class="ph-inner">
+            <p class="ph-tag">VIP Access · Ontario Pre-Construction</p>
+            <h1 class="ph-title">Active Projects <span class="gold">Across Ontario</span></h1>
+            <p class="ph-sub">27 communities — from Peel to Halton, York to GTA. Register for VIP pricing before public release.</p>
+        </div>
+    </section>
+
+    <!-- ========== FILTER BAR ========== -->
+    <div class="filter-bar" id="filterBar">
+        <div class="filter-inner" id="filterInner">
+            <button class="filter-btn active" data-filter="all">
+                All <span class="badge" id="cnt-all">27</span>
+            </button>
+            <button class="filter-btn" data-filter="peel">
+                Peel Region <span class="badge" id="cnt-peel">0</span>
+            </button>
+            <button class="filter-btn" data-filter="halton">
+                Halton Region <span class="badge" id="cnt-halton">0</span>
+            </button>
+            <button class="filter-btn" data-filter="york">
+                York Region <span class="badge" id="cnt-york">0</span>
+            </button>
+            <button class="filter-btn" data-filter="gta">
+                GTA & Beyond <span class="badge" id="cnt-gta">0</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== GRID ========== -->
+    <section class="projects-section">
+        <div class="projects-grid-wrap">
+            <div class="grid-meta">
+                <p class="grid-count"><strong id="visibleCount">27</strong> projects shown</p>
+            </div>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Cards injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA BANNER ========== -->
+    <section class="projects-cta-banner">
+        <div class="pcb-inner">
+            <p class="pcb-sub">Get VIP Access</p>
+            <h2 class="pcb-title">Don't See Your City? <span class="gold">We Have More.</span></h2>
+            <p class="pcb-body">New projects launch weekly. Register now and we'll match you with the right community before it goes public.</p>
+            <div class="pcb-actions">
+                <a href="tel:4162002620" class="btn btn-primary">Call 416-200-2620</a>
+                <a href="index.html#contact" class="btn btn-outline">Register for Free →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="nav-logo">
+                    <span class="logo-vip">VIP</span>
+                    <span class="logo-text">NEW HOMES</span>
+                </div>
+                <p class="footer-tagline">Ontario's Pre-Construction Specialists</p>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 VIP New Homes | Ankit Sarhadi, Homelife Miracle Realty Ltd., Brokerage. All rights reserved.</p>
+                <p class="footer-disc">Prices, programs and incentives are subject to change without notice. E. &amp; O.E.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+    /* ── Project Data ───────────────────────────────────────── */
+    const PROJECTS = [
+      {
+        id: "arista-oakpointe",
+        name: "Oakpointe",
+        builder: "Arista Homes",
+        city: "Oakville",
+        region: "halton",
+        types: ["Detached"],
+        closing: "2027",
+        status: "pre-con",
+        image: "images/projects/arista-oakpointe.jpg"
+      },
+      {
+        id: "ashley-riverview-heights",
+        name: "Riverview Heights",
+        builder: "Ashley Oaks",
+        city: "Brampton",
+        region: "peel",
+        types: ["Detached"],
+        closing: "2026",
+        status: "pre-con",
+        image: "images/projects/ashley-oaks-riverview-heights.jpg"
+      },
+      {
+        id: "cachet-binbrook",
+        name: "Binbrook",
+        builder: "Cachet Homes",
+        city: "Binbrook",
+        region: "gta",
+        types: ["Detached", "Towns"],
+        closing: "2027",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "cachet-havendale",
+        name: "Havendale",
+        builder: "Cachet Homes",
+        city: "Brantford",
+        region: "gta",
+        types: ["Detached"],
+        closing: "2027",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "caivan-arbor-west",
+        name: "Arbor West",
+        builder: "Caivan",
+        city: "Brampton",
+        region: "peel",
+        types: ["Towns"],
+        closing: "2026",
+        status: "pre-con",
+        image: "images/projects/caivan-arbor-west.jpg"
+      },
+      {
+        id: "caivan-riverview-south",
+        name: "Riverview South",
+        builder: "Caivan",
+        city: "Oakville",
+        region: "halton",
+        types: ["Detached", "Towns"],
+        closing: "2027",
+        status: "pre-con",
+        image: "images/projects/caivan-riverview-south.jpg"
+      },
+      {
+        id: "caledon-club",
+        name: "Caledon Club",
+        builder: "",
+        city: "Caledon",
+        region: "peel",
+        types: ["Detached"],
+        closing: "2027",
+        status: "pre-con",
+        image: "images/projects/caledon-club.jpg"
+      },
+      {
+        id: "caledon-trails",
+        name: "Caledon Trails",
+        builder: "",
+        city: "Caledon",
+        region: "peel",
+        types: ["Detached", "Semi", "Towns"],
+        closing: "2026",
+        status: "pre-con",
+        image: "images/projects/caledon-trails.jpg"
+      },
+      {
+        id: "coscorp-trafalgar",
+        name: "Trafalgar Highlands",
+        builder: "Coscorp",
+        city: "Oakville",
+        region: "halton",
+        types: ["Detached", "Semi"],
+        closing: "2027",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "empire-avalon-gateway",
+        name: "Avalon &amp; Gateway",
+        builder: "Empire Communities",
+        city: "Caledonia",
+        region: "gta",
+        types: ["Detached", "Towns"],
+        closing: "Move-In Ready",
+        status: "move-in",
+        image: "images/projects/empire-avalon-gateway.jpg"
+      },
+      {
+        id: "fusion-cadence",
+        name: "Cadence",
+        builder: "Fusion Homes",
+        city: "Cambridge",
+        region: "gta",
+        types: ["Detached", "Towns"],
+        closing: "2026",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "hallett-glen-abbey",
+        name: "Glen Abbey Encore",
+        builder: "Hallett Homes",
+        city: "Oakville",
+        region: "halton",
+        types: ["Detached"],
+        closing: "2027",
+        status: "pre-con",
+        image: "images/projects/hallett-glen-abbey.jpg"
+      },
+      {
+        id: "hallett-joshua-creek",
+        name: "Joshua Creek",
+        builder: "Hallett Homes",
+        city: "Oakville",
+        region: "halton",
+        types: ["Detached", "Towns"],
+        closing: "2027",
+        status: "pre-con",
+        image: "images/projects/hallett-joshua-creek.jpg"
+      },
+      {
+        id: "laurelcrest-fairway",
+        name: "Fairway Meadows",
+        builder: "Laurelcrest Homes",
+        city: "Cambridge",
+        region: "gta",
+        types: ["Detached", "Semi", "Towns"],
+        closing: "2027",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "mattamy-hawthorne",
+        name: "Hawthorne East Village",
+        builder: "Mattamy Homes",
+        city: "Milton",
+        region: "halton",
+        types: ["Detached", "Towns"],
+        closing: "2027",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "mattamy-union",
+        name: "Union Mount Pleasant",
+        builder: "Mattamy Homes",
+        city: "Brampton",
+        region: "peel",
+        types: ["Detached", "Towns"],
+        closing: "2026",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "mattamy-upper-joshua",
+        name: "Upper Joshua Creek",
+        builder: "Mattamy Homes",
+        city: "Oakville",
+        region: "halton",
+        types: ["Detached", "Towns"],
+        closing: "2027",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "mattamy-wildflower",
+        name: "Wildflower",
+        builder: "Mattamy Homes",
+        city: "Kitchener",
+        region: "gta",
+        types: ["Detached", "Towns"],
+        closing: "2026",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "poetry-ellis-lane",
+        name: "Ellis Lane",
+        builder: "Poetry Living",
+        city: "Caledon",
+        region: "peel",
+        types: ["Detached"],
+        closing: "2027",
+        status: "pre-con",
+        image: "images/projects/poetry-ellis-lane.jpg"
+      },
+      {
+        id: "regal-crest-mayfield",
+        name: "Mayfield Village",
+        builder: "Regal Crest Homes",
+        city: "Brampton",
+        region: "peel",
+        types: ["Detached", "Semi"],
+        closing: "2026",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "regal-crest-caledon",
+        name: "Upper Caledon East",
+        builder: "Regal Crest Homes",
+        city: "Caledon",
+        region: "peel",
+        types: ["Detached"],
+        closing: "2027",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "regency-rollingwoods",
+        name: "Rollingwoods",
+        builder: "Regency Homes",
+        city: "Brampton",
+        region: "peel",
+        types: ["Towns"],
+        closing: "2026",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "remington-brightside",
+        name: "Brightside",
+        builder: "Remington Homes",
+        city: "Brampton",
+        region: "peel",
+        types: ["Detached"],
+        closing: "2027",
+        status: "pre-con",
+        image: "images/projects/remington-brightside.jpg"
+      },
+      {
+        id: "ivy-rouge",
+        name: "Ivy Rouge",
+        builder: "Rosehaven &amp; Starlane",
+        city: "Oakville",
+        region: "halton",
+        types: ["Detached", "Towns"],
+        closing: "2027",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "rosehaven-on-the-ridge",
+        name: "On The Ridge",
+        builder: "Rosehaven Homes",
+        city: "Stoney Creek",
+        region: "gta",
+        types: ["Detached"],
+        closing: "2027",
+        status: "pre-con",
+        image: null
+      },
+      {
+        id: "southcal",
+        name: "SouthCal",
+        builder: "DECO Homes &amp; OPUS Homes",
+        city: "Caledon",
+        region: "peel",
+        types: ["Detached", "Towns"],
+        closing: "2026",
+        status: "pre-con",
+        image: "images/projects/southcal.jpg"
+      },
+      {
+        id: "the-valley",
+        name: "The Valley",
+        builder: "Marycroft, Poetry Living &amp; Remington",
+        city: "Woodbridge",
+        region: "york",
+        types: ["Detached", "Towns"],
+        closing: "2027",
+        status: "pre-con",
+        image: null
+      }
+    ];
+
+    /* ── Build & Filter ─────────────────────────────────────── */
+    let activeFilter = 'all';
+
+    function makeCard(p) {
+        const badgeLabel = p.status === 'move-in' ? 'Move-In Ready' : 'Pre-Construction';
+        const imgHTML = p.image
+            ? `<img src="${p.image}" alt="${p.name}" loading="lazy">`
+            : `<div class="pc-placeholder"><span class="pc-placeholder-text">${p.name}</span></div>`;
+        const chips = p.types.map(t => `<span class="pc-chip">${t}</span>`).join('');
+        const closingLabel = p.status === 'move-in' ? 'Availability' : 'Closing';
+        const builderLine = p.builder
+            ? `<p class="pc-builder">by ${p.builder}</p>`
+            : `<p class="pc-builder">&nbsp;</p>`;
+
+        return `
+        <div class="project-card" data-region="${p.region}">
+            <div class="pc-img">
+                ${imgHTML}
+                <span class="pc-badge ${p.status}">${badgeLabel}</span>
+            </div>
+            <div class="pc-body">
+                <div class="pc-location">
+                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none">
+                        <path d="M5.5 0C2.46 0 0 2.46 0 5.5c0 3.85 5.5 8.5 5.5 8.5S11 9.35 11 5.5C11 2.46 8.54 0 5.5 0zm0 7.5a2 2 0 110-4 2 2 0 010 4z" fill="currentColor"/>
+                    </svg>
+                    ${p.city}
+                </div>
+                <h3 class="pc-name">${p.name}</h3>
+                ${builderLine}
+                <div class="pc-types">${chips}</div>
+                <hr class="pc-rule">
+                <div class="pc-meta">
+                    <div class="pc-meta-block">
+                        <span class="pc-meta-label">Price</span>
+                        <span class="pc-meta-value">Register for Pricing</span>
+                    </div>
+                    <div class="pc-meta-block">
+                        <span class="pc-meta-label">${closingLabel}</span>
+                        <span class="pc-meta-value">${p.closing}</span>
+                    </div>
+                </div>
+                <a href="tel:4162002620" class="pc-cta">Inquire Now — 416-200-2620</a>
+            </div>
+        </div>`;
+    }
+
+    function updateCounts() {
+        const counts = { all: PROJECTS.length, peel: 0, halton: 0, york: 0, gta: 0 };
+        PROJECTS.forEach(p => counts[p.region]++);
+        document.getElementById('cnt-all').textContent    = counts.all;
+        document.getElementById('cnt-peel').textContent   = counts.peel;
+        document.getElementById('cnt-halton').textContent = counts.halton;
+        document.getElementById('cnt-york').textContent   = counts.york;
+        document.getElementById('cnt-gta').textContent    = counts.gta;
+    }
+
+    function renderGrid(filter) {
+        const grid = document.getElementById('projectsGrid');
+        const visible = filter === 'all'
+            ? PROJECTS
+            : PROJECTS.filter(p => p.region === filter);
+
+        if (visible.length === 0) {
+            grid.innerHTML = `<div class="no-results">
+                <strong>No projects in this region right now.</strong>
+                <p>Call us — new listings arrive weekly.</p>
+            </div>`;
+        } else {
+            grid.innerHTML = visible.map(makeCard).join('');
+        }
+        document.getElementById('visibleCount').textContent = visible.length;
+    }
+
+    function initFilters() {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeFilter = btn.dataset.filter;
+                renderGrid(activeFilter);
+            });
+        });
+    }
+
+    /* ── Init ───────────────────────────────────────────────── */
+    updateCounts();
+    renderGrid('all');
+    initFilters();
+    </script>
+</body>
+</html>
