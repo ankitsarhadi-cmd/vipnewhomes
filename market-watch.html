@@ -53,7 +53,7 @@
                 <li><a href="market-watch.html" class="active-link">Market Watch</a></li>
                 <li><a href="index.html#contact" class="nav-cta">Register Now</a></li>
             </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <button class="hamburger" id="hamburger" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
@@ -636,35 +636,52 @@
 
     <!-- ========== FOOTER ========== -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <img src="images/logo-circle.png" alt="VIP New Homes" class="logo-img">
+        <div class="footer-inner">
+            <div class="footer-cols">
+                <div class="footer-col footer-col-brand">
+                    <div class="nav-logo">
+                        <img src="images/logo-circle.png" alt="VIP New Homes" class="logo-img">
+                    </div>
+                    <p class="footer-tagline">Ontario's Pre-Construction Specialists</p>
+                    <div class="footer-contact-list">
+                        <a href="tel:4162002620" class="footer-contact-link">📞 416-200-2620</a>
+                        <a href="mailto:info@teamsarhadi.com" class="footer-contact-link">✉️ info@teamsarhadi.com</a>
+                        <span class="footer-contact-link">📍 821 Bovaird Dr W #31, Brampton, ON</span>
+                    </div>
                 </div>
-                <p class="footer-tagline">Ontario's trusted pre-construction specialists.</p>
+                <div class="footer-col">
+                    <p class="footer-col-title">Quick Links</p>
+                    <ul class="footer-col-links">
+                        <li><a href="projects.html">Active Projects</a></li>
+                        <li><a href="why-us.html">Why Choose Us</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="index.html#contact">Register for VIP Access</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-title">Learn</p>
+                    <ul class="footer-col-links">
+                        <li><a href="why-pre-con.html">Why Pre-Construction</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="market-watch.html">Market Watch</a></li>
+                        <li><a href="reviews.html">Client Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-title">Free Tools</p>
+                    <ul class="footer-col-links">
+                        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                        <li><a href="hst-calculator.html">HST Rebate Calculator</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="projects.html">Projects</a>
-                <a href="why-us.html">Why Us</a>
-                <a href="mortgage-calculator.html">Calculators</a>
-                <a href="market-watch.html">Market Watch</a>
-                <a href="faq.html">FAQ</a>
-                <a href="index.html#contact">Contact</a>
+            <div class="footer-bottom">
+                <p>© 2026 VIP New Homes | Team Sarhadi, Homelife Miracle Realty Ltd., Brokerage. All rights reserved.</p>
+                <p class="footer-disc">All data sourced from TRREB MLS® System. Statistics are based on firm transactions and may be revised. Not intended to solicit buyers or sellers currently under contract.</p>
             </div>
-            <p class="footer-copy">&copy; 2026 VIP New Homes | Team Sarhadi. All rights reserved. Not intended to solicit buyers or sellers currently under contract.</p>
         </div>
     </footer>
 
-    <script>
-    // Navbar scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 40);
-    });
-    // Mobile toggle
-    const navToggle = document.getElementById('navToggle');
-    const navLinks  = document.getElementById('navLinks');
-    if (navToggle) navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
