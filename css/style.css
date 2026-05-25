@@ -220,10 +220,10 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
    HERO
    ============================================================ */
 .hero {
-    min-height: 100vh;
+    min-height: auto;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     overflow: hidden;
 }
 .hero-bg {
@@ -252,7 +252,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
     z-index: 2;
     max-width: var(--max);
     margin: 0 auto;
-    padding: 120px 24px 80px;
+    padding: 160px 24px 120px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -419,7 +419,8 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
     color: var(--gold);
     border: 1px solid rgba(201,162,39,0.28);
 }
-.project-info { padding: 20px; }
+.project-info { padding: 20px; display: flex; flex-direction: column; }
+.project-info .btn-card { margin-top: auto; }
 .project-location { font-size:0.76rem; color:var(--gray); margin-bottom:5px; }
 .project-name { font-family:var(--font-serif); font-size:1.25rem; font-weight:700; color:var(--navy); margin-bottom:3px; }
 .project-builder { font-size:0.78rem; color:var(--gray); margin-bottom:14px; }
